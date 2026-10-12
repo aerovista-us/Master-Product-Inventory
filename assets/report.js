@@ -7,7 +7,7 @@ const drawer = document.getElementById('detailDrawer');
 const backdrop = document.getElementById('drawerBackdrop');
 const drawerBody = document.getElementById('drawerBody');
 const state = {view:'overview',query:'',family:'All families',lifecycle:'All statuses',priority:'All priorities',kind:'All classifications',page:1};
-const labels = {overview:'Portfolio Overview',products:'Product Inventory',repositories:'GitHub Repository Audit',overlaps:'Canonical Source Crosswalk',actions:'Recommended Next Actions',methodology:'Evidence & Methodology'};
+const labels = {overview:'Portfolio Overview',products:'Product Inventory',repositories:'GitHub Repository Audit',runtime:'Runtime & Hosting Audit',overlaps:'Canonical Source Crosswalk',actions:'Recommended Next Actions',methodology:'Evidence & Methodology'};
 const escape = x => String(x == null ? '' : x).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const url = x => /^https:\/\/(github\.com|app\.notion\.com)\//.test(String(x||'')) ? escape(x) : '#';
 const cap = x => String(x||'').toLowerCase().replace(/[^a-z0-9]+/g,'-');
@@ -53,7 +53,7 @@ function overview(){
  const legend=ordered(lc).map(([n,v])=>'<div class="legend-row"><span class="legend-swatch" style="background:'+(colors[n]||'#526a7b')+'"></span><span>'+escape(n)+'</span><b>'+v+'</b></div>').join('');
  const recommendations=D.recommendations.slice(0,3);
  return '<div class="hero"><span class="hero-tag">COMPANY-WIDE / REVIEW 01</span><h1>A clearer view of <span>everything</span> we build.</h1><p>One coherent inventory across AeroVista products, internal tools, creative systems, field platforms and experiments — with GitHub lineage and release uncertainty made explicit.</p><div class="hero-foot"><span>● AUDIT SNAPSHOT READY</span><span>11 OCTOBER 2026</span><span>NOTION × GITHUB</span></div></div>'
- +'<div class="metrics">'+metric('Identified products',prod,'Canonical records · Notion','01')+metric('Accessible repos',reps,'GitHub owner enumeration','02')+metric('Active lifecycles',active,'Not a release-readiness count','03')+metric('Listing-only review',review,'Source taxonomy needs triage','04')+'</div>'
+ +'<div class="metrics">'+metric('Identified products',prod,'Canonical records · Notion','01')+metric('Accessible repos',reps,'GitHub owner enumeration','02')+metric('Active lifecycles',active,'Not a release-readiness count','03')+metric('Listing-only review',review,'Source taxonomy needs triage','04')+metric('Compose projects',D.deployments?.nxcore?.composeProjectCount||0,'NXCore Docker','05')+metric('Vercel projects',D.deployments?.vercel?.projectCount||0,'Connected scope','06')+'</div>'
  +'<div class="notice"><span class="symbol">!</span><div><strong>Lifecycle ≠ operational acceptance</strong><p>A product marked Active may still lack verified authentication, checkout, real-data QA, devices or production deployment. The source evidence and outstanding gates are recorded separately.</p></div></div>'
  +sectionHead('PORTFOLIO MIX','Where the work lives','Products categorized by intended use and operating family.')
  +'<div class="two-panels"><section class="panel"><div class="section-label" style="margin-bottom:19px">PRODUCT DISTRIBUTION / FAMILY</div>'+bars(fam,Math.max(...Object.values(fam)))+'</section><section class="panel"><div class="section-label">PRODUCT LIFECYCLE</div><div class="donut-wrap"><div class="donut" style="background:conic-gradient('+stops.join(',')+')"><div class="donut-center"><strong>'+active+'</strong><span>ACTIVE</span></div></div><div class="legend">'+legend+'</div></div></section></div>'
@@ -87,6 +87,30 @@ function repositoryView(){
  +'<div class="filters"><select class="filter" aria-label="Repository classification" data-filter="kind">'+opt(['All classifications',...k],state.kind)+'</select></div><p class="result-count"><strong>'+q.length+'</strong> of '+D.repositories.length+' repositories · historical catalog '+escape(D.meta.historicalCatalogDate||'unknown')+' · selection is not a Git cleanup instruction</p>'
  +(q.length?'<div class="data-table-wrap"><table class="data-table"><thead><tr><th>Repository</th><th>Disposition</th><th>Product relation</th><th>Review depth</th><th>Details</th></tr></thead><tbody>'+body+'</tbody></table></div><div class="pagination"><span>Page '+page+' / '+total+'</span><button data-page="'+(page-1)+'" '+(page===1?'disabled':'')+'>← Previous</button><button data-page="'+(page+1)+'" '+(page===total?'disabled':'')+'>Next →</button></div>':'<div class="empty">No repositories matched. Clear the search or classification.</div>');
 }
+function runtimeView(){
+ const d=D.deployments||{},nx=d.nxcore||{},v=d.vercel||{},f=d.firebase||{},q=state.query.trim().toLowerCase();
+ const filt=x=>(x||[]).filter(a=>!q||JSON.stringify(a).toLowerCase().includes(q));
+ const projects=filt(nx.projects),containers=filt(nx.containers),vercel=filt(v.projects),firebase=filt(f.targets);
+ const total=Math.max(1,Math.ceil(containers.length/20)),pg=Math.min(state.page,total),slice=containers.slice((pg-1)*20,pg*20);
+ const stat=x=>badge(x,cap(x));
+ const table=(headers,rows)=>'<div class="data-table-wrap"><table class="data-table"><thead><tr>'+headers.map(h=>'<th>'+escape(h)+'</th>').join('')+'</tr></thead><tbody>'+rows.join('')+'</tbody></table></div>';
+ return heading('04','Runtime & hosting','NXCore Docker Compose, connected Vercel deployment metadata and Firebase Hosting source configurations. These are infrastructure observations, not customer acceptance.')
+ +'<div class="metrics">'+metric('Compose projects',nx.composeProjectCount||0,'NXCore project groups','01')+metric('Running containers',nx.runningContainerCount||0,'Observed on NXCore','02')+metric('Healthy checks',nx.healthCount?.healthy||0,'Explicit Docker healthy','03')+metric('Vercel projects',v.projectCount||0,'Connected scope','04')+'</div>'
+ +'<div class="notice"><span class="symbol">!</span><div><strong>Runtime does not mean production-ready</strong><p>Docker checks and READY build results do not verify login, payment, end-user workflow, content security, backups or browser acceptance.</p></div></div>'
+ +sectionHead('NXCORE / COMPOSE','Compose projects',projects.length+' matching projects, including partial and exited statuses.')
+ +table(['Project','State'],projects.map(x=>'<tr><td class="repo-name">'+escape(x.name)+'</td><td>'+stat(x.status)+'</td></tr>'))
+ +sectionHead('NXCORE / DOCKER','Running containers',containers.length+' matching containers; Docker health may be not declared.')
+ +(containers.length?table(['Container','Compose project','Health','Image'],slice.map(x=>'<tr><td class="repo-name">'+escape(x.name)+'</td><td>'+escape(x.composeProject||'—')+'</td><td>'+stat(x.health)+'</td><td class="secondary">'+escape(x.image)+'</td></tr>'))+'<div class="pagination"><span>Page '+pg+' / '+total+'</span><button data-page="'+(pg-1)+'" '+(pg===1?'disabled':'')+'>← Previous</button><button data-page="'+(pg+1)+'" '+(pg===total?'disabled':'')+'>Next →</button></div>':'<div class="empty">No matching containers.</div>')
+ +sectionHead('VERCEL','Projects and latest deployment evidence',vercel.length+' projects. Latest CANCELED or ERROR does not imply all earlier production deployments are down.')
+ +table(['Project','Related product','Latest state','Target'],vercel.map(x=>'<tr><td class="repo-name">'+escape(x.name)+'</td><td>'+escape(x.linkedProduct||'Shared / handoff')+'</td><td>'+stat(x.latestObservedState)+'</td><td class="secondary">'+escape(x.latestTargetProduction===null?'Unverified':x.latestTargetProduction?'Production':'Preview')+'</td></tr>'))
+ +'<div class="notice"><span class="symbol">i</span><div><strong>Vercel acceptance limit</strong><p>'+escape(v.limitations||'')+'</p></div></div>'
+ +sectionHead('FIREBASE','Hosting targets from source config','Firebase CLI was not available on NXCore; serving deployments were not enumerated.')
+ +table(['Repository','Hosting target','Configured site','Evidence'],firebase.map(x=>'<tr><td>'+escape(x.sourceRepo)+'</td><td>'+escape(x.hostingTarget)+'</td><td>'+escape(x.hostingSite)+'</td><td>'+stat('config only')+'</td></tr>'))
+ +'<div class="notice"><span class="symbol">i</span><div><strong>Firebase verification limit</strong><p>'+escape(f.limitations||'')+'</p></div></div>'
+ +sectionHead('TRIAGE','Service candidates','Distinct product authority still needs review.')
+ +'<div class="panel"><div class="code-pills">'+(d.candidateServices||[]).map(x=>'<span>'+escape(x)+'</span>').join('')+'</div><p class="lede" style="font-size:12px;margin-top:12px">'+escape(d.scopeNotes||'')+'</p></div>';
+}
+
 function overlapsView(){
  return heading('04','Canonical source crosswalk','These repositories may appear to represent the same product. Their relation is documented to prevent duplicate product records or unsafe archive decisions.')
  +'<div class="notice"><span class="symbol">↗</span><div><strong>Dependency check before retirement</strong><p>Do not delete, rename or archive repositories based on name similarity alone. Confirm current deployed commit, media, external links, restore paths, consumers and ownership first.</p></div></div>'
@@ -107,7 +131,7 @@ function methodologyView(){
 }
 function render(){
  if(!D){app.innerHTML='<div class="notice"><strong>Data unavailable.</strong> Open this repo with its data/catalog.js file alongside index.html.</div>';return;}
- const views={overview,products:productView,repositories:repositoryView,overlaps:overlapsView,actions:actionsView,methodology:methodologyView};
+ const views={overview,products:productView,repositories:repositoryView,runtime:runtimeView,overlaps:overlapsView,actions:actionsView,methodology:methodologyView};
  app.innerHTML=(views[state.view]||overview)();
 }
 function openDrawer(html){
@@ -119,7 +143,8 @@ function closeDrawer(){
 function productDetail(id){
  const p=D.products.find(x=>x.id===id);if(!p)return;
  const related=p.repos.length?p.repos.map(n=>namedLink(n)).join(''):'<span class="small-p">No verified exact repository crosswalk for this product.</span>';
- openDrawer('<span class="eyebrow">PRODUCT / '+escape(p.family)+'</span><h2 class="drawer-title">'+escape(p.name)+'</h2><p class="drawer-sub">Evidence and delivery gates from the canonical Notion product record.</p><div class="drawer-badges">'+badge(p.lifecycle,cap(p.lifecycle))+badge(p.priority,cap(p.priority))+badge(p.evidenceTier)+'</div><section class="drawer-block"><h4>What it does</h4><p>'+escape(p.summary)+'</p></section><section class="drawer-block"><h4>Last recorded evidence</h4><p>'+escape(p.evidence||'No detailed evidence recorded.')+'</p></section><section class="drawer-block"><h4>Next acceptance gate / outcome</h4><p>'+escape(p.nextGate||'Explicit acceptance criteria remain to be confirmed.')+'</p></section><section class="drawer-block"><h4>Linked GitHub repositories</h4><div class="drawer-links">'+related+'</div></section><section class="drawer-block"><h4>Provenance</h4><p class="small-p">Notion reviewed: '+escape(p.lastReviewed||'not recorded')+'. <strong>Lifecycle does not certify customer readiness.</strong></p><div class="drawer-links" style="margin-top:12px">'+ext(p.notionUrl,'Open canonical Notion record')+'</div></section>');
+ const runtime=(p.composeProjects||[]).map(n=>badge(n)).join('')||'<span class="small-p">No mapped Compose project.</span>';
+ openDrawer('<span class="eyebrow">PRODUCT / '+escape(p.family)+'</span><h2 class="drawer-title">'+escape(p.name)+'</h2><p class="drawer-sub">Evidence and delivery gates from the canonical Notion product record.</p><div class="drawer-badges">'+badge(p.lifecycle,cap(p.lifecycle))+badge(p.priority,cap(p.priority))+badge(p.evidenceTier)+'</div><section class="drawer-block"><h4>What it does</h4><p>'+escape(p.summary)+'</p></section><section class="drawer-block"><h4>Last recorded evidence</h4><p>'+escape(p.evidence||'No detailed evidence recorded.')+'</p></section><section class="drawer-block"><h4>Next acceptance gate / outcome</h4><p>'+escape(p.nextGate||'Explicit acceptance criteria remain to be confirmed.')+'</p></section><section class="drawer-block"><h4>Linked GitHub repositories</h4><div class="drawer-links">'+related+'</div></section><section class="drawer-block"><h4>NXCore deployment associations</h4><div class="badge-row">'+runtime+'</div><p class="small-p">Service association is not end-user acceptance.</p></section><section class="drawer-block"><h4>Provenance</h4><p class="small-p">Notion reviewed: '+escape(p.lastReviewed||'not recorded')+'. <strong>Lifecycle does not certify customer readiness.</strong></p><div class="drawer-links" style="margin-top:12px">'+ext(p.notionUrl,'Open canonical Notion record')+'</div></section>');
 }
 function repoDetail(n){
  const r=D.repositories.find(x=>x.name===n);if(!r)return;
