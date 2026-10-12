@@ -19,7 +19,7 @@ const namedLink = r => ext('https://github.com/aerovista-us/'+r,r);
 const pct = (n,tot) => tot ? Math.round(n/tot*100) : 0;
 const productFilter = () => D.products.filter(p => {
  const q=state.query.trim().toLowerCase();
- const text=[p.name,p.family,p.summary,p.evidence,p.nextGate,p.repos.join(' '),p.priority,p.lifecycle].join(' ').toLowerCase();
+ const text=[p.name,p.family,p.summary,p.evidence,p.nextGate,p.repos.join(' '),(p.composeProjects||[]).join(' '),p.priority,p.lifecycle].join(' ').toLowerCase();
  return (!q||text.includes(q)) && (state.family==='All families'||state.family===p.family) && (state.lifecycle==='All statuses'||state.lifecycle===p.lifecycle) && (state.priority==='All priorities'||state.priority===p.priority);
 });
 const repoFilter = () => D.repositories.filter(r => {
@@ -160,8 +160,8 @@ function exportCsv(){
  const mode=state.view==='repositories'?'repositories':'products';
  if(mode==='repositories'){const rows=repoFilter(),cols=['Repository','Kind','Review depth','Visibility','Related products','URL','Historical status'];
  download('aerovista-repository-audit-2026-10-11.csv',[csvRow(cols),...rows.map(r=>csvRow([r.name,r.kind,r.reviewDepth,r.visibility,r.links.map(x=>x.name).join('; '),r.url,r.historicalStatus]))].join('\r\n'),'text/csv;charset=utf-8');}
- else{const rows=productFilter(),cols=['Product','Family','Lifecycle','Priority','Evidence tier','Last Reviewed','Repositories','Summary','Next Gate','Notion URL'];
- download('aerovista-products-2026-10-11.csv',[csvRow(cols),...rows.map(p=>csvRow([p.name,p.family,p.lifecycle,p.priority,p.evidenceTier,p.lastReviewed,p.repos.join('; '),p.summary,p.nextGate,p.notionUrl]))].join('\r\n'),'text/csv;charset=utf-8');}
+ else{const rows=productFilter(),cols=['Product','Family','Lifecycle','Priority','Evidence tier','Last Reviewed','Repositories','NXCore Compose','Summary','Next Gate','Notion URL'];
+ download('aerovista-products-2026-10-11.csv',[csvRow(cols),...rows.map(p=>csvRow([p.name,p.family,p.lifecycle,p.priority,p.evidenceTier,p.lastReviewed,p.repos.join('; '),(p.composeProjects||[]).join('; '),p.summary,p.nextGate,p.notionUrl]))].join('\r\n'),'text/csv;charset=utf-8');}
 }
 document.querySelector('.main-nav').addEventListener('click',e=>{const t=e.target.closest('[data-view]');if(t)nav(t.dataset.view);});
 app.addEventListener('click',e=>{
