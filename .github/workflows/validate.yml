@@ -1,0 +1,43 @@
+name: Validate portfolio report
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate dataset and product/repo crosswalk
+        run: python3 scripts/build-data.py --check
+      - name: Validate browser JavaScript
+        run: |
+          node --check assets/report.js
+          node --check data/catalog.js
+      - name: Verify static assets and report structure
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          html = Path("index.html").read_text(encoding="utf-8")
+          assert 'assets/report.css' in html
+          assert 'assets/report.js' in html
+          assert 'data/catalog.js' in html
+          assert 'id="app"' in html
+          assert Path("docs/AUDIT.md").exists()
+          print("PASS: self-contained HTML entry and dependencies")
+          PY
