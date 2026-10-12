@@ -1,13 +1,14 @@
 (function () {
 'use strict';
 const D = window.AEROVISTA_PORTFOLIO_DATA;
+const L = window.AEROVISTA_LOCAL_SOURCES || {entries:[],echoStories:{editions:[]}};
 const app = document.getElementById('app');
 const search = document.getElementById('globalSearch');
 const drawer = document.getElementById('detailDrawer');
 const backdrop = document.getElementById('drawerBackdrop');
 const drawerBody = document.getElementById('drawerBody');
-const state = {view:'overview',query:'',family:'All families',lifecycle:'All statuses',priority:'All priorities',kind:'All classifications',page:1};
-const labels = {overview:'Portfolio Overview',products:'Product Inventory',repositories:'GitHub Repository Audit',runtime:'Runtime & Hosting Audit',overlaps:'Canonical Source Crosswalk',actions:'Recommended Next Actions',methodology:'Evidence & Methodology'};
+const state = {view:'overview',query:'',family:'All families',collection:'All collections',localRole:'All roles',lifecycle:'All statuses',priority:'All priorities',kind:'All classifications',page:1};
+const labels = {overview:'Portfolio Overview',collections:'Families & Collections',local:'NXCore mini.shops Sources',products:'Product Inventory',repositories:'GitHub Repository Audit',runtime:'Runtime & Hosting Audit',overlaps:'Canonical Source Crosswalk',actions:'Recommended Next Actions',methodology:'Evidence & Methodology'};
 const escape = x => String(x == null ? '' : x).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const url = x => /^https:\/\/(github\.com|app\.notion\.com)\//.test(String(x||'')) ? escape(x) : '#';
 const cap = x => String(x||'').toLowerCase().replace(/[^a-z0-9]+/g,'-');
@@ -19,8 +20,8 @@ const namedLink = r => ext('https://github.com/aerovista-us/'+r,r);
 const pct = (n,tot) => tot ? Math.round(n/tot*100) : 0;
 const productFilter = () => D.products.filter(p => {
  const q=state.query.trim().toLowerCase();
- const text=[p.name,p.family,p.summary,p.evidence,p.nextGate,p.repos.join(' '),(p.composeProjects||[]).join(' '),p.priority,p.lifecycle].join(' ').toLowerCase();
- return (!q||text.includes(q)) && (state.family==='All families'||state.family===p.family) && (state.lifecycle==='All statuses'||state.lifecycle===p.lifecycle) && (state.priority==='All priorities'||state.priority===p.priority);
+ const text=[p.name,p.family,p.collection,p.summary,p.evidence,p.nextGate,p.repos.join(' '),(p.composeProjects||[]).join(' '),p.priority,p.lifecycle].join(' ').toLowerCase();
+ return (!q||text.includes(q)) && (state.family==='All families'||state.family===p.family) && (state.collection==='All collections'||state.collection===p.collection) && (state.lifecycle==='All statuses'||state.lifecycle===p.lifecycle) && (state.priority==='All priorities'||state.priority===p.priority);
 });
 const repoFilter = () => D.repositories.filter(r => {
  const q=state.query.trim().toLowerCase();
@@ -67,11 +68,51 @@ function productCard(p){
  return '<article class="product-card"><div class="card-top"><span class="card-family">'+escape(p.family)+'</span><div class="badge-row">'+badge(p.priority,cap(p.priority))+badge(p.lifecycle,cap(p.lifecycle))+'</div></div><h3>'+escape(p.name)+'</h3><p>'+escape(p.summary)+'</p><div class="card-bottom"><div class="badge-row">'+badge(p.repos.length+' linked repo'+(p.repos.length===1?'':'s'))+'</div><div class="card-links"><button data-product="'+escape(p.id)+'">Full record ↗</button>'+ext(p.notionUrl,'Notion')+'</div></div></article>';
 }
 function opt(values,selected){return values.map(v=>'<option'+(v===selected?' selected':'')+'>'+escape(v)+'</option>').join('');}
+function collectionsView(){
+ const q=state.query.trim().toLowerCase();
+ const fs=[...new Set(D.products.map(p=>p.family))].sort();
+ const es=L.echoStories?.editions||[];
+ const match=p=>!q||[p.name,p.family,p.collection,p.summary,p.lifecycle].join(' ').toLowerCase().includes(q);
+ const groups=fs.map(f=>({name:f,products:D.products.filter(p=>p.family===f&&match(p))})).filter(f=>f.products.length);
+ const card=p=>'<div class="collection-product"><button data-product="'+escape(p.id)+'">'+escape(p.name)+'</button><span class="collection-product-status">'+escape(p.lifecycle)+'</span></div>';
+ const editions=es.filter(e=>!q||[e.name,e.kind,'EchoStories'].join(' ').toLowerCase().includes(q));
+ const editionUI='<details class="edition-expander" '+(state.family==='EchoVerse & EchoStories'?'open':'')+'><summary><span>EchoStories local editions and templates</span>'+badge(editions.length+' / '+es.length+' folders')+'</summary><p class="lede" style="font-size:12px">Source-only folder records. Song/album releases and player templates are not automatically separate products, published pages or paid offerings.</p><div class="edition-grid">'+editions.map(e=>'<div class="edition-row"><strong>'+escape(e.name)+'</strong>'+badge(e.kind)+'</div>').join('')+'</div><p style="margin-top:13px">'+ext(L.echoStories?.notionUrl,'EchoStories collection program')+'</p></details>';
+ const familyCards=groups.map(f=>{
+ const lines=[...new Set(f.products.map(p=>p.collection||'Unassigned'))].sort();
+ return '<section class="family-group"><div class="family-group-head"><div><div class="eyebrow">PORTFOLIO FAMILY</div><h2>'+escape(f.name)+'</h2><p>'+f.products.length+' products · '+lines.length+' collections</p></div><button class="mini-link" data-focus-family="'+escape(f.name)+'">Explore products ↗</button></div><div class="collection-grid">'+lines.map(line=>{
+ const ps=f.products.filter(p=>(p.collection||'Unassigned')===line);
+ return '<article class="collection-tile"><div class="tile-title"><h3>'+escape(line)+'</h3><span class="count-pill">'+ps.length+'</span></div><div class="collection-product-list">'+ps.map(card).join('')+'</div></article>';
+ }).join('')+'</div>'+(f.name==='EchoVerse & EchoStories'?editionUI:'')+'</section>';
+ }).join('');
+ return heading('02','Families & collections','Navigate the portfolio by umbrella family, reusable product collection, individual application and—where applicable—release editions. Counts distinguish products from audio content and templates.')
+ +'<div class="metrics">'+metric('Product families',fs.length,'Company-wide organization','01')+metric('Collections',[...new Set(D.products.map(p=>p.collection))].length,'Reusable groups','02')+metric('Products',D.products.length,'Notion Type=Product','03')+metric('EchoStories source folders',es.length,'Editions and templates','04')+'</div>'
+ +'<div class="notice"><span class="symbol">i</span><div><strong>Example: EchoVerse → EchoStories → product → edition</strong><p>EchoStory is the paid-tribute storefront concept; EchoValentines is a related greeting-card application; the 33 local folders contain release pages, album experiences and player templates. They must not inflate the count of standalone apps.</p></div></div>'
+ +'<p class="result-count"><strong>'+groups.length+'</strong> matching families · '+groups.reduce((a,b)=>a+b.products.length,0)+' matching product records</p>'
+ +(groups.length?familyCards:'<div class="empty">No matching family or product. Clear the search.</div>');
+}
+function localView(){
+ const q=state.query.trim().toLowerCase();
+ const roles=[...new Set((L.entries||[]).map(x=>x.role))].sort();
+ const items=(L.entries||[]).filter(x=>(state.localRole==='All roles'||x.role===state.localRole)&&(!q||[x.name,x.role,x.markers.join(' ')].join(' ').toLowerCase().includes(q)));
+ const es=L.echoStories?.editions||[];
+ const headers='<div class="data-table-wrap"><table class="data-table local-table"><thead><tr><th>Directory</th><th>Source classification</th><th>File markers</th><th>Child folders</th></tr></thead><tbody>';
+ const rows=items.map(x=>'<tr><td><strong class="repo-name">'+escape(x.name)+'</strong></td><td>'+badge(x.role)+'</td><td class="secondary">'+escape(x.markers.join(', ')||'none at root')+'</td><td>'+x.subfolders+'</td></tr>').join('');
+ return heading('04','NXCore mini.shops','A read-only catalog of the local source directory. This is a broader source census than GitHub alone, including client deliverables, local-only prototypes, commerce bundles, research tools and release packs.')
+ +'<div class="metrics">'+metric('Top-level folders',L.directoryCount||0,'Source folders on NXCore','01')+metric('EchoStories subfolders',es.length,'Editions and templates','02')+metric('Source-labeled products',D.products.filter(p=>p.localFolders?.length).length,'New product records','03')+metric('Release acceptance', 'Separate','No assumption from files','04')+'</div>'
+ +'<div class="notice"><span class="symbol">!</span><div><strong>File presence is not a deployed application</strong><p>Folder names, entry HTML files, package manifests or Compose definitions may identify prototypes, legacy snapshots, customer-specific deliverables or templates. Data excludes source bodies, local credentials and media contents.</p></div></div>'
+ +'<div class="filters"><select class="filter" aria-label="Local source role" data-filter="localRole">'+opt(['All roles',...roles],state.localRole)+'</select><button class="action-button subtle" data-jump="collections">Browse grouped EchoStories →</button></div>'
+ +'<p class="result-count"><strong>'+items.length+'</strong> / '+(L.directoryCount||0)+' local source directories</p>'
+ +(items.length?headers+rows+'</tbody></table></div>':'<div class="empty">No matching directories.</div>')
+ +sectionHead('ECHO STORIES / LOCAL','Themed experiences and templates','Listed under the EchoStories Program in Notion, not separate product records.')
+ +'<div class="edition-grid">'+es.filter(e=>!q||e.name.toLowerCase().includes(q)).map(e=>'<div class="edition-row"><strong>'+escape(e.name)+'</strong><span class="secondary">'+escape(e.kind)+'</span></div>').join('')+'</div>'
+ +'<p class="result-count" style="margin-top:18px">'+ext(L.echoStories?.notionUrl,'Open EchoStories collection in Notion')+'</p>';
+}
+
 function productView(){
  const q=productFilter();
- const f=[...new Set(D.products.map(p=>p.family))].sort(),lc=[...new Set(D.products.map(p=>p.lifecycle))].sort(),pri=[...new Set(D.products.map(p=>p.priority))].sort();
+ const f=[...new Set(D.products.map(p=>p.family))].sort(),collections=[...new Set(D.products.map(p=>p.collection))].sort(),lc=[...new Set(D.products.map(p=>p.lifecycle))].sort(),pri=[...new Set(D.products.map(p=>p.priority))].sort();
  return heading('02','Product inventory','All '+D.products.length+' canonical products, classified by family and portfolio lifecycle. Open a record to see repository lineage, cited evidence notes and the next acceptance gate.')
- +'<div class="filters"><select class="filter" aria-label="Product family" data-filter="family">'+opt(['All families',...f],state.family)+'</select><select class="filter" aria-label="Lifecycle status" data-filter="lifecycle">'+opt(['All statuses',...lc],state.lifecycle)+'</select><select class="filter" aria-label="Priority" data-filter="priority">'+opt(['All priorities',...pri],state.priority)+'</select></div>'
+ +'<div class="filters"><select class="filter" aria-label="Product family" data-filter="family">'+opt(['All families',...f],state.family)+'</select><select class="filter" aria-label="Product collection" data-filter="collection">'+opt(['All collections',...collections],state.collection)+'</select><select class="filter" aria-label="Lifecycle status" data-filter="lifecycle">'+opt(['All statuses',...lc],state.lifecycle)+'</select><select class="filter" aria-label="Priority" data-filter="priority">'+opt(['All priorities',...pri],state.priority)+'</select></div>'
  +'<p class="result-count"><strong>'+q.length+'</strong> of '+D.products.length+' products · source evidence and actual release acceptance are separate dimensions</p>'
  +(q.length?'<div class="product-grid">'+q.map(productCard).join('')+'</div>':'<div class="empty">No products match these filters. Clear search or change the selection.</div>');
 }
@@ -131,7 +172,7 @@ function methodologyView(){
 }
 function render(){
  if(!D){app.innerHTML='<div class="notice"><strong>Data unavailable.</strong> Open this repo with its data/catalog.js file alongside index.html.</div>';return;}
- const views={overview,products:productView,repositories:repositoryView,runtime:runtimeView,overlaps:overlapsView,actions:actionsView,methodology:methodologyView};
+ const views={overview,products:productView,repositories:repositoryView,runtime:runtimeView,collections:collectionsView,local:localView,overlaps:overlapsView,actions:actionsView,methodology:methodologyView};
  app.innerHTML=(views[state.view]||overview)();
 }
 function openDrawer(html){
@@ -167,6 +208,7 @@ document.querySelector('.main-nav').addEventListener('click',e=>{const t=e.targe
 app.addEventListener('click',e=>{
  const p=e.target.closest('[data-product]');if(p)return productDetail(p.dataset.product);
  const r=e.target.closest('[data-repo]');if(r)return repoDetail(decodeURIComponent(r.dataset.repo));
+ const ff=e.target.closest('[data-focus-family]');if(ff){state.family=ff.dataset.focusFamily;state.collection='All collections';return nav('products');}
  const j=e.target.closest('[data-jump]');if(j)return nav(j.dataset.jump);
  const n=e.target.closest('[data-page]');if(n){state.page=Math.max(1,Number(n.dataset.page));render();return;}
 });
