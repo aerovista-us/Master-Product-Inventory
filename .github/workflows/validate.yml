@@ -29,6 +29,7 @@ jobs:
         run: |
           node --check assets/report.js
           node --check data/catalog.js
+          node --check data/local-sources.js
       - name: Verify static assets and report structure
         run: |
           python3 - <<'PY'
@@ -37,6 +38,9 @@ jobs:
           assert 'assets/report.css' in html
           assert 'assets/report.js' in html
           assert 'data/catalog.js' in html
+          assert 'data/local-sources.js' in html
+          assert 'data-view="collections"' in html
+          assert 'data-view="local"' in html
           assert 'id="app"' in html
           assert Path("docs/AUDIT.md").exists()
           print("PASS: self-contained HTML entry and dependencies")
