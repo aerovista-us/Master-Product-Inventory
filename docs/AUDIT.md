@@ -7,11 +7,15 @@
 
 ## 1. Executive summary
 
-This audit inventoried **176 accessible GitHub repositories** under the linked AeroVista owner, including the newly created `Master-Product-Inventory` source repository. The canonical Notion Projects database contained **41 products** at the audit checkpoint: **31 Active**, **6 Planning**, **3 On Hold**, and **1 Completed**.
+This audit inventoried **176 accessible GitHub repositories** under the linked AeroVista owner, including `Master-Product-Inventory`. The expanded canonical Notion Projects database now contains **61 products**: **48 Active**, **9 Planning**, **3 On Hold**, and **1 Completed**. The GitHub-only checkpoint was 41; 20 additional independently named tools were located through NXCore Docker and Vercel. See [Runtime and Hosting Audit](DEPLOYMENTS.md) for the deployment snapshot.
 
-**Do not interpret 31 Active as 31 production-ready apps.** Active means portfolio activity; deployment, paid checkout, private data access, user acceptance, device safety, print quality and operating evidence are independently gated. The source role of a repository is not a release status.
+**Do not interpret 48 Active as 48 production-ready apps.** Active means portfolio activity; deployment, paid checkout, private data access, user acceptance, device safety, print quality and operating evidence are independently gated. The source role of a repository is not a release status.
 
 An older human-classified GitHub repo catalog contained **111 entries**, generated **2026-07-09**. We preserved those notes as historical provenance. The old `ACOS`/AeroCore and storefront canonical-source conclusions may have been superseded, so source migrations or archiving must rely on current owner evidence.
+
+## 1a. Deployment-backed portfolio expansion
+
+Read-only examination of NXCore found **63 Compose projects** and **109 running containers**. Connected Vercel returned **10 configured projects**; GitHub Firebase Hosting config documents **two targets** but does not prove deployed release state. Added 20 product records to Notion after confirming distinct app/UI intent. Refer to [DEPLOYMENTS.md](DEPLOYMENTS.md) and the report's Runtime & Hosting view for names, status, limits and source categories.
 
 ## 2. Repository disposition
 
@@ -33,11 +37,11 @@ See the interactive Repository Audit page for all exact repository names, dispos
 ## 3. Product families
 
 - **Investigations & Field:** BlackIndex, Nightglass, Request Lens, ByteCoreLite, ByteCoreLite-Connect, FieldWatch.
-- **Commerce & Marketplaces:** AeroVista Apparel, Art Localized, AV Portrait, Horizon Storefront, Store Console, Profit Compass.
-- **Local & Community:** CDA Tonight, CDA Fair Day, FireWatch North Idaho, CDA Reading Adventure.
-- **Media & Creative:** EchoVerse platform, Phase workstation, EchoStory, Northline Experience, Vault Music Catalog, Style Atlas, Lumina Image Studio, Prism.
-- **Publishing & Learning:** Vespera, The Rack, Signal, ByteCast Employee Home, Summit Learning, Time Circuit, Love Is Hard Learning Module.
-- **Operations & Productivity:** AeroVista Operates, BytePad, Daily Brief Builder, AutoBench, LotScope/Pondy Flats, Frontier PTT, RydeSync.
+- **Commerce & Marketplaces:** AeroVista Apparel, Art Localized, AV Portrait, Horizon Storefront, Store Console, Profit Compass and AeroVista Social Engine (starter).
+- **Local & Community:** CDA Tonight, CDA Fair Day, FireWatch North Idaho, CDA Reading Adventure and Lake Day.
+- **Media & Creative:** EchoVerse platform, Phase workstation, EchoStory, Northline Experience, Vault Music Catalog, Style Atlas, Lumina Image Studio, Prism, Cuts, Guitar Studio, Narrator Studio, Branding Kit Organizer, Horizon Tour Builder, Horizon Media Gallery and ByteTag.
+- **Publishing & Learning:** Vespera, The Rack, Signal, ByteCast Employee Home, Summit Learning, Time Circuit, Love Is Hard Learning Module, Vespera Publishing Studio and Shift Happens.
+- **Operations & Productivity:** AeroVista Operates, BytePad, Daily Brief Builder, AutoBench, LotScope/Pondy Flats, Frontier PTT, RydeSync, App Studio, AeroDeck, Memory Mapping v2, NXCal, Business Suite, Order Timer, Work Orders Mission Control, Pitch Studio and Cyber-Deck.
 - **Entertainment:** Ascension Awaits.
 
 Families describe navigation and customer intent, not separate legal entities, separate production hosts, or double-counted products.
