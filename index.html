@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a1019">
+<meta name="description" content="AeroVista company-wide product inventory and evidence-first GitHub repository audit, October 2026.">
+<title>AeroVista / Product Intelligence</title>
+<link rel="stylesheet" href="assets/report.css">
+<script defer src="data/catalog.js"></script>
+<script defer src="assets/report.js"></script>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+    <div class="identity"><div class="identity-mark" aria-hidden="true"><span>AV</span></div><div class="identity-copy"><strong>AEROVISTA</strong><span>PORTFOLIO SYSTEM</span></div></div>
+    <div class="sidebar-meta"><span class="status-dot"></span> AUDIT SNAPSHOT <span class="mono">2026.10.11</span></div>
+    <p class="nav-label">INTELLIGENCE</p>
+    <nav class="main-nav" aria-label="Report sections">
+      <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span><span>Overview</span><span class="nav-index">01</span></button>
+      <button class="nav-item" data-view="products"><span class="nav-icon">▦</span><span>Product inventory</span><span class="nav-index">02</span></button>
+      <button class="nav-item" data-view="repositories"><span class="nav-icon">⌘</span><span>GitHub audit</span><span class="nav-index">03</span></button>
+      <button class="nav-item" data-view="overlaps"><span class="nav-icon">◈</span><span>Source crosswalk</span><span class="nav-index">04</span></button>
+      <button class="nav-item" data-view="actions"><span class="nav-icon">↗</span><span>Next actions</span><span class="nav-index">05</span></button>
+      <button class="nav-item" data-view="methodology"><span class="nav-icon">≋</span><span>Method & limits</span><span class="nav-index">06</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="source-label">CONNECTED AUTHORITIES</div>
+      <a href="https://github.com/aerovista-us/Master-Product-Inventory" target="_blank" rel="noopener noreferrer">GitHub · Master inventory <span>↗</span></a>
+      <a href="https://app.notion.com/p/3f62a204d0c481e39d7ecec55dd67b48" target="_blank" rel="noopener noreferrer">Notion · Product records <span>↗</span></a>
+      <div class="version"><span class="status-dot"></span> Evidence-first · Static snapshot</div>
+    </div>
+  </aside>
+
+  <div class="workspace">
+    <header class="toolbar">
+      <div class="toolbar-left">
+        <button class="mobile-menu" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <span class="crumb">AeroVista <span>/</span> <strong id="activeViewLabel">Portfolio Overview</strong></span>
+      </div>
+      <div class="toolbar-right">
+        <div class="toolbar-live"><span class="pulse-dot"></span> INTERNAL RESEARCH REPORT</div>
+        <button class="action-button subtle" id="printButton" title="Print or save as PDF">↧ <span>Print</span></button>
+        <button class="action-button primary" id="exportButton" title="Export the current dataset as CSV">⇩ <span>Export CSV</span></button>
+      </div>
+    </header>
+    <div class="global-search">
+      <span aria-hidden="true">⌕</span>
+      <input id="globalSearch" type="search" aria-label="Search report" placeholder="Search products, repositories, capabilities, evidence and outstanding gates…" autocomplete="off">
+      <kbd>/</kbd>
+    </div>
+    <main id="app" tabindex="-1"><div class="loading"><span class="loading-mark">AV</span><p>Preparing portfolio intelligence…</p></div></main>
+    <footer class="footer"><span>AEROVISTA / PORTFOLIO INTELLIGENCE</span><span>Decision support · As of 11 OCT 2026</span><span>Notion + GitHub · No live acceptance implied</span></footer>
+  </div>
+</div>
+<div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+<aside class="detail-drawer" id="detailDrawer" aria-label="Item detail" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+  <div class="drawer-head"><span class="eyebrow">SOURCE DETAIL</span><button class="drawer-close" id="drawerClose" aria-label="Close details">✕</button></div>
+  <div id="drawerBody"></div>
+</aside>
+<noscript><div class="noscript"><h1>AeroVista Product Intelligence</h1><p>This standalone report requires JavaScript to render searches and tables. The complete underlying snapshot is available in <a href="data/catalog.json">data/catalog.json</a>.</p></div></noscript>
+</body>
+</html>
