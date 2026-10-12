@@ -1,10 +1,10 @@
 {
   "meta": {
     "title": "AeroVista Master Product Inventory",
-    "snapshot": "2026-10-11",
+    "snapshot": "2026-10-12",
     "githubOwner": "aerovista-us",
     "repositoryCount": 176,
-    "productCount": 61,
+    "productCount": 67,
     "notionUrl": "https://app.notion.com/p/3f62a204d0c481e39d7ecec55dd67b48",
     "historicalCatalogDate": "2026-07-09T16:45:47Z",
     "historicalCatalogCount": 111,
@@ -22,13 +22,15 @@
     "deploymentAuditDate": "2026-10-11",
     "runtimeProjects": 63,
     "runningContainers": 109,
-    "vercelProjects": 10
+    "vercelProjects": 10,
+    "productFamilyCount": 8,
+    "productCollectionCount": 25
   },
   "products": [
     {
       "id": "aerodeck",
       "name": "AeroDeck",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Programmable Stream Deck-like digital control surface with React/FastAPI keys, widgets, dials and WebSocket state.",
@@ -40,12 +42,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "aerodeck"
-      ]
+      ],
+      "collection": "Workspace Builders"
     },
     {
       "id": "aerovista-app-studio",
       "name": "AeroVista App Studio",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Internal app-development studio with web UI, API, worker and Redis support services.",
@@ -57,12 +60,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "app-studio"
-      ]
+      ],
+      "collection": "Workspace Builders"
     },
     {
       "id": "aerovista-apparel-storefront-collections",
       "name": "AeroVista Apparel Storefront & Collections",
-      "family": "Commerce & Marketplaces",
+      "family": "Commerce & Retail",
       "lifecycle": "Active",
       "priority": "P1",
       "summary": "My AeroVista source #16 merged; Account summary backend exists. Saved Pieces ACOS #124 remains OPEN/default-off and My Orders Commerce #5 merged source/sandbox only. Product image 404/503, shoe catalog IDs, checkout CORS/Square and production customer-benefit QA remain open.",
@@ -78,12 +82,13 @@
       "composeProjects": [
         "apparel-auth",
         "backend"
-      ]
+      ],
+      "collection": "Flagship Commerce"
     },
     {
       "id": "aerovista-business-suite",
       "name": "AeroVista Business Suite",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Planning",
       "priority": "P2",
       "summary": "Extracted contacts, team, invoices, tasks and projects business UI that aims to reuse AVCC authority instead of building another database.",
@@ -95,12 +100,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "aerovista_businesssuite"
-      ]
+      ],
+      "collection": "AeroCore Command & Business"
     },
     {
       "id": "aerovista-daily-brief-builder",
       "name": "AeroVista Daily Brief Builder",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "On Hold",
       "priority": "P3",
       "summary": "Legacy self-contained daily brief/task/calendar and 45-day strategic projection PWA with localStorage state and responsive planning views.",
@@ -112,12 +118,13 @@
         "aerovista-daily-brief-builder"
       ],
       "evidenceTier": "on hold",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Planning & Productivity"
     },
     {
       "id": "aerovista-frontier-ptt",
       "name": "AeroVista Frontier PTT",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "On Hold",
       "priority": "P3",
       "summary": "Private tailnet push-to-talk and WebRTC browser prototype for trusted devices with WebSocket room signaling.",
@@ -129,12 +136,13 @@
         "ptt"
       ],
       "evidenceTier": "on hold",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Communications & Mobility"
     },
     {
       "id": "aerovista-operates",
       "name": "AeroVista Operates",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P1",
       "summary": "AeroVista Operates 0.5.0 is now LIVE ACCEPTED. Source advanced through Slice C and commit 80675bee records final NXCore live acceptance, smoke/safety proof and retained recovery evidence. The prior runtime/product acceptance gate is closed; future enhancements should be treated as the next bounded release rather than reopening 0.5.0.",
@@ -148,12 +156,13 @@
       "evidenceTier": "bounded runtime acceptance reported",
       "composeProjects": [
         "deploy"
-      ]
+      ],
+      "collection": "AeroCore Command & Business"
     },
     {
       "id": "aerovista-pitch-studio",
       "name": "AeroVista Pitch Studio",
-      "family": "Operations & Productivity",
+      "family": "Creative Production",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Internal pitch and sales presentation creation workspace backed by web and API containers.",
@@ -165,12 +174,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "aerovista_pitch_studio"
-      ]
+      ],
+      "collection": "Sales & Presentation"
     },
     {
       "id": "aerovista-social-engine",
       "name": "AeroVista Social Engine",
-      "family": "Commerce & Marketplaces",
+      "family": "Operations & Workspaces",
       "lifecycle": "Planning",
       "priority": "P2",
       "summary": "Social Media Hub authentication and organization-account application foundation; intended social calendar/scheduler remains a future layer.",
@@ -182,12 +192,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "socal_media_hub"
-      ]
+      ],
+      "collection": "Social & Marketing"
     },
     {
       "id": "art-localized-platform-creator-validation",
       "name": "Art Localized Platform & Creator Validation",
-      "family": "Commerce & Marketplaces",
+      "family": "Commerce & Retail",
       "lifecycle": "Active",
       "priority": "P1",
       "summary": "Art Localized public market and creator-validation program. The platform direction is established; current work is closing non-founder creator validation, reconciling the public experience with the current creator/booth state, and keeping operator mutations in the proper internal workspace rather than the public-site repo.",
@@ -202,12 +213,13 @@
       "evidenceTier": "source or historical evidence",
       "composeProjects": [
         "artlocalized-api"
-      ]
+      ],
+      "collection": "Creator & Custom Commerce"
     },
     {
       "id": "ascension-awaits",
       "name": "Ascension Awaits",
-      "family": "Entertainment",
+      "family": "Publishing & Entertainment",
       "lifecycle": "Planning",
       "priority": "P2",
       "summary": "SkyForge narrative afterlife/reincarnation interactive game with Placement Office, Rolodex and earned Stat Generator spin economy.",
@@ -221,12 +233,13 @@
       "evidenceTier": "planning/prototype",
       "composeProjects": [
         "aerovista-workspaces"
-      ]
+      ],
+      "collection": "Interactive Stories & Games"
     },
     {
       "id": "autobench",
       "name": "AutoBench",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "AI-first van/vehicle conversion design workbench, using measured geometry, CAD/OCCT concepts and reviewable render/plan outputs.",
@@ -238,12 +251,13 @@
         "autobench"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Workspace Builders"
     },
     {
       "id": "av-portrait",
       "name": "AV Portrait",
-      "family": "Commerce & Marketplaces",
+      "family": "Commerce & Retail",
       "lifecycle": "Planning",
       "priority": "P2",
       "summary": "AeroVista portrait/image-generation offering intended to use shared App Adapter identity, Square payments and entitlement policy.",
@@ -255,12 +269,13 @@
         "AV-Portrait"
       ],
       "evidenceTier": "planning/prototype",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Creator & Custom Commerce"
     },
     {
       "id": "avcc-work-orders-mission-control",
       "name": "AVCC Work Orders Mission Control",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Work order management mission control with web operator surface and processing worker.",
@@ -272,12 +287,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "workorders"
-      ]
+      ],
+      "collection": "AeroCore Command & Business"
     },
     {
       "id": "blackindex",
       "name": "BlackIndex",
-      "family": "Investigations & Field",
+      "family": "Investigations & Security",
       "lifecycle": "Active",
       "priority": "P1",
       "summary": "Local-first evidence intelligence and declassified-record research platform; source preservation, evidence mapping, genealogy, human review and grounded local AI.",
@@ -291,12 +307,13 @@
       "evidenceTier": "local runtime HTTP and health observed",
       "composeProjects": [
         "blackindex"
-      ]
+      ],
+      "collection": "Evidence & OSINT"
     },
     {
       "id": "bytecast-employee-home",
       "name": "ByteCast — Employee Home",
-      "family": "Publishing & Learning",
+      "family": "Learning & Wellness",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Employee pulse, onboarding and internal learning application with journeys, episode registry, playlists, and Seed Builder Studio.",
@@ -310,12 +327,13 @@
       "evidenceTier": "source or historical evidence",
       "composeProjects": [
         "bytecast"
-      ]
+      ],
+      "collection": "Training & Learning"
     },
     {
       "id": "bytecorelite",
       "name": "ByteCoreLite",
-      "family": "Investigations & Field",
+      "family": "Investigations & Security",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Portable Raspberry Pi/Linux edge field node with bounded capabilities, local pairing, security controls and evidence-oriented job architecture.",
@@ -327,12 +345,13 @@
         "ByteCoreLite"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Field & Edge Devices"
     },
     {
       "id": "bytecorelite-connect",
       "name": "ByteCoreLite-Connect",
-      "family": "Investigations & Field",
+      "family": "Investigations & Security",
       "lifecycle": "Planning",
       "priority": "P3",
       "summary": "Android-first mobile control surface for paired ByteCoreLite field nodes, intended for trusted discovery, commands by approved capability, progress, and evidence.",
@@ -344,12 +363,13 @@
         "ByteCoreLite-Connect"
       ],
       "evidenceTier": "planning/prototype",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Field & Edge Devices"
     },
     {
       "id": "bytepad",
       "name": "BytePad",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Cross-surface creative board, sticky notes and knowledge workspace spanning web/PWA, Electron desktop and CLI with plugin-capable core.",
@@ -363,7 +383,8 @@
         "bytepad_studio"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Planning & Productivity"
     },
     {
       "id": "cda-fair-day",
@@ -380,7 +401,27 @@
         "cdafair"
       ],
       "evidenceTier": "on hold",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "AeroVista Local Utilities"
+    },
+    {
+      "id": "cda-public-camera-hub",
+      "name": "CDA Public Camera Hub",
+      "lifecycle": "Planning",
+      "priority": "P3",
+      "summary": "Static directory of publicly accessible Coeur d’Alene camera feeds.",
+      "evidence": "Source observed on NXCore mini.shops October 12, 2026. Local folder: cda-camera-hub. No new user/browser release acceptance implied.",
+      "nextGate": "Verify exact app intent, ownership, legitimate live access and full workflow before promotion.",
+      "notionUrl": "https://app.notion.com/p/3f72a204d0c481c095b7e77977d8325c",
+      "lastReviewed": "2026-10-12",
+      "evidenceTier": "Local source found",
+      "repos": [],
+      "composeProjects": [],
+      "localFolders": [
+        "cda-camera-hub"
+      ],
+      "family": "Local & Community",
+      "collection": "AeroVista Local Utilities"
     },
     {
       "id": "cda-reading-adventure",
@@ -397,7 +438,8 @@
         "cda-reading-adventure"
       ],
       "evidenceTier": "planning/prototype",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Community Learning"
     },
     {
       "id": "cda-tonight",
@@ -414,12 +456,51 @@
         "cdatonight"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "AeroVista Local Utilities"
+    },
+    {
+      "id": "cindy-santi-apparel-storefront",
+      "name": "Cindy Santi Apparel Storefront",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Independent client apparel/storefront project with Square and print-fulfillment mapping.",
+      "evidence": "Source observed on NXCore mini.shops October 12, 2026. Local folder: cindy_santi. No new user/browser release acceptance implied.",
+      "nextGate": "Verify exact app intent, ownership, legitimate live access and full workflow before promotion.",
+      "notionUrl": "https://app.notion.com/p/3f72a204d0c481d1b97fdf3a818e931d",
+      "lastReviewed": "2026-10-12",
+      "evidenceTier": "Local source found",
+      "repos": [],
+      "composeProjects": [],
+      "localFolders": [
+        "cindy_santi"
+      ],
+      "family": "Commerce & Retail",
+      "collection": "Client & Specialty Storefronts"
+    },
+    {
+      "id": "cupid-hud-adventure-builder",
+      "name": "Cupid HUD Adventure Builder",
+      "lifecycle": "Planning",
+      "priority": "P3",
+      "summary": "Interactive story hotspot editor and markdown-to-scene compilation prototype.",
+      "evidence": "Source observed on NXCore mini.shops October 12, 2026. Local folder: cupid. No new user/browser release acceptance implied.",
+      "nextGate": "Verify exact app intent, ownership, legitimate live access and full workflow before promotion.",
+      "notionUrl": "https://app.notion.com/p/3f72a204d0c481e8a4d8fe799f620461",
+      "lastReviewed": "2026-10-12",
+      "evidenceTier": "Local source found",
+      "repos": [],
+      "composeProjects": [],
+      "localFolders": [
+        "cupid"
+      ],
+      "family": "Publishing & Entertainment",
+      "collection": "Interactive Stories & Games"
     },
     {
       "id": "cuts",
       "name": "Cuts",
-      "family": "Media & Creative",
+      "family": "Creative Production",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Standalone AudioTools Cuts browser utility, serving an audio cutting and trimming workspace.",
@@ -431,12 +512,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "cuts"
-      ]
+      ],
+      "collection": "Audio & Media Tools"
     },
     {
       "id": "cyber-deck",
       "name": "Cyber-Deck",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Cyberpunk-styled private planning and personal productivity dashboard for journaling, goals, habits, mood and finances.",
@@ -448,12 +530,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "glitch_bitch"
-      ]
+      ],
+      "collection": "Planning & Productivity"
     },
     {
       "id": "echostory",
       "name": "EchoStory",
-      "family": "Media & Creative",
+      "family": "EchoVerse & EchoStories",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Personalized musical tribute storefront and interactive customer-order wizard with vibes, samples, memory builder and tiered packages.",
@@ -465,12 +548,32 @@
         "echostory"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "EchoStories"
+    },
+    {
+      "id": "echovalentines-interactive-cards",
+      "name": "EchoValentines — Interactive Cards",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "EchoStory-style greeting card app with reusable media packs and browser tests.",
+      "evidence": "Source observed on NXCore mini.shops October 12, 2026. Local folder: Valentines. No new user/browser release acceptance implied.",
+      "nextGate": "Verify exact app intent, ownership, legitimate live access and full workflow before promotion.",
+      "notionUrl": "https://app.notion.com/p/3f72a204d0c48143b2f1ff0120ace135",
+      "lastReviewed": "2026-10-12",
+      "evidenceTier": "Local source found",
+      "repos": [],
+      "composeProjects": [],
+      "localFolders": [
+        "Valentines"
+      ],
+      "family": "EchoVerse & EchoStories",
+      "collection": "EchoStories"
     },
     {
       "id": "echoverse-bytetag",
       "name": "EchoVerse ByteTag",
-      "family": "Media & Creative",
+      "family": "EchoVerse & EchoStories",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "EchoVerse audio metadata/tagging operator utility with separate API and UI in the catalog stack.",
@@ -482,12 +585,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "echoverse_music_catalogvnx"
-      ]
+      ],
+      "collection": "Audio Production Tools"
     },
     {
       "id": "echoverse-narrator-studio",
       "name": "EchoVerse Narrator Studio",
-      "family": "Media & Creative",
+      "family": "EchoVerse & EchoStories",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Local/private voice narration and text-to-speech production workbench with preset voices and catalog handoff.",
@@ -499,12 +603,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "echoverse-narrator-starter"
-      ]
+      ],
+      "collection": "Audio Production Tools"
     },
     {
       "id": "echoverse-phase-workstation",
       "name": "EchoVerse Phase Workstation",
-      "family": "Media & Creative",
+      "family": "EchoVerse & EchoStories",
       "lifecycle": "Active",
       "priority": "P1",
       "summary": "Phase #2 merged Oct 10: Master Assembly 0.14 source, 146/146 tests and CI/browser smoke. Phase site root responds HTTP 200 Oct 11, but live Master Assembly feature/PWA acceptance not established; source merge is not release proof.",
@@ -516,12 +621,13 @@
         "phase"
       ],
       "evidenceTier": "source merged and host response observed",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Audio Production Tools"
     },
     {
       "id": "echoverse-platform-stabilization-release",
       "name": "EchoVerse Platform Stabilization & Release",
-      "family": "Media & Creative",
+      "family": "EchoVerse & EchoStories",
       "lifecycle": "Active",
       "priority": "P1",
       "summary": "EchoVerse Analyses #1 and Workspaces #6 remain OPEN DRAFT at e0bb286 and 07d3638. Evidence-first CLI/local review UI exists as source; no real-audio export validation or production workspace deployment accepted.",
@@ -536,12 +642,13 @@
       "evidenceTier": "source or historical evidence",
       "composeProjects": [
         "echoverse_music_catalogvnx"
-      ]
+      ],
+      "collection": "Music & Catalog"
     },
     {
       "id": "exif-lens",
       "name": "EXIF Lens",
-      "family": "Other",
+      "family": "Investigations & Security",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Local-first photo metadata inspector and privacy cleaner; browser-based JPEG/PNG EXIF and chunk analysis with optional ExifTool deep-format API.",
@@ -553,12 +660,13 @@
         "exif-lens-pages"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Evidence & OSINT"
     },
     {
       "id": "fieldwatch",
       "name": "FieldWatch",
-      "family": "Investigations & Field",
+      "family": "Investigations & Security",
       "lifecycle": "Planning",
       "priority": "P3",
       "summary": "Passive authorized Wi-Fi field visibility module for WiFi Pineapple Mark VII: new SSIDs/clients, first/last seen, export and optional NXCore alerts.",
@@ -571,7 +679,8 @@
         "pineapple-modules"
       ],
       "evidenceTier": "planning/prototype",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Field & Edge Devices"
     },
     {
       "id": "firewatch-command-north-idaho",
@@ -588,12 +697,13 @@
         "AeroVista_FireWatch"
       ],
       "evidenceTier": "completed launch assets evidenced",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "AeroVista Local Utilities"
     },
     {
       "id": "guitar-studio",
       "name": "Guitar Studio",
-      "family": "Media & Creative",
+      "family": "Creative Production",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Standalone Guitar Studio audio/music browser tool in the AeroVista AudioTools family.",
@@ -605,12 +715,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "guitar-studio"
-      ]
+      ],
+      "collection": "Audio & Media Tools"
     },
     {
       "id": "horizon-drone-tour-builder",
       "name": "Horizon Drone Tour Builder",
-      "family": "Media & Creative",
+      "family": "Creative Production",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Horizon aerial tour builder creative workspace, separate from Horizon product storefront.",
@@ -622,12 +733,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "aerovista-workspaces"
-      ]
+      ],
+      "collection": "Horizon Visual Production"
     },
     {
       "id": "horizon-media-gallery",
       "name": "Horizon Media Gallery",
-      "family": "Media & Creative",
+      "family": "Creative Production",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Hosted Horizon gallery for presentation and discovery of aerial/visual media separate from checkout storefront.",
@@ -639,12 +751,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "horizon-media-gallery"
-      ]
+      ],
+      "collection": "Horizon Visual Production"
     },
     {
       "id": "horizon-storefront",
       "name": "Horizon Storefront",
-      "family": "Commerce & Marketplaces",
+      "family": "Commerce & Retail",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Customer-facing aerial-art storefront for Horizon prints and placement products, sharing AeroVista Commerce but retaining its own catalog presentation.",
@@ -657,7 +770,8 @@
         "store"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Horizon Commerce"
     },
     {
       "id": "lake-day",
@@ -674,12 +788,13 @@
         "lakeday"
       ],
       "evidenceTier": "Vercel READY only",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "AeroVista Local Utilities"
     },
     {
       "id": "lotscope-pondy-flats-feasibility-workbench",
       "name": "LotScope / Pondy Flats Feasibility Workbench",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P1",
       "summary": "Oct 11 source milestones: Pondy #46/#47 merged D4 label/print QA and exact-head browser/print CI; LotScope #82/#84/#85/#87/#88 merged roof diagnostics, fail-closed inputs and exact-camera analytic intervals; Pondy #49 merged concept-only source-bound customer interval drawings. LotScope #89/#91 merged handoff error classification/edge diagnostics, NOT a successful founder login. Authenticated staff visual QA, Home B edge-on REVIEW_REQUIRED, Vercel broker 403, print calibration and professional/AHJ approval remain open.",
@@ -692,12 +807,13 @@
         "PondyFlats"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Workspace Builders"
     },
     {
       "id": "love-is-hard-learning-module",
       "name": "Love Is Hard — Learning Module",
-      "family": "Publishing & Learning",
+      "family": "Learning & Wellness",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Privacy-safe relationship communication curriculum with eight teaching sessions, worksheet, song-based reflections and facilitator content.",
@@ -709,12 +825,13 @@
         "love-is-hard-public"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Training & Learning"
     },
     {
       "id": "lumina-branding-kit-organizer",
       "name": "Lumina Branding Kit Organizer",
-      "family": "Media & Creative",
+      "family": "Creative Production",
       "lifecycle": "Planning",
       "priority": "P2",
       "summary": "Brand-asset kit and product organizer with kit/product pages and a typed React UI.",
@@ -726,12 +843,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "luminabrandingkitorganizer"
-      ]
+      ],
+      "collection": "Lumina Studio"
     },
     {
       "id": "lumina-image-studio",
       "name": "Lumina Image Studio",
-      "family": "Media & Creative",
+      "family": "Creative Production",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Browser-local professional image editor for layers, adjustments, automation, autosave, branded production and export.",
@@ -745,12 +863,13 @@
       "evidenceTier": "source or historical evidence",
       "composeProjects": [
         "lumina-image-studio"
-      ]
+      ],
+      "collection": "Lumina Studio"
     },
     {
       "id": "memory-mapping-v2",
       "name": "Memory Mapping v2",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Memory mapping, corpus indexing and event/scheduled processing stack with dashboard, API, watcher and scheduler.",
@@ -762,12 +881,32 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "memorymappingv2"
-      ]
+      ],
+      "collection": "Planning & Productivity"
+    },
+    {
+      "id": "moth-emporium",
+      "name": "Moth Emporium",
+      "lifecycle": "Planning",
+      "priority": "P3",
+      "summary": "Specialty ecommerce prototype with themed mini-stores and browser-local cart.",
+      "evidence": "Source observed on NXCore mini.shops October 12, 2026. Local folder: moth. No new user/browser release acceptance implied.",
+      "nextGate": "Verify exact app intent, ownership, legitimate live access and full workflow before promotion.",
+      "notionUrl": "https://app.notion.com/p/3f72a204d0c4815f88ccf35d616e1c4f",
+      "lastReviewed": "2026-10-12",
+      "evidenceTier": "Local source found",
+      "repos": [],
+      "composeProjects": [],
+      "localFolders": [
+        "moth"
+      ],
+      "family": "Commerce & Retail",
+      "collection": "Client & Specialty Storefronts"
     },
     {
       "id": "nightglass-osint-workbench",
       "name": "Nightglass OSINT Workbench",
-      "family": "Investigations & Field",
+      "family": "Investigations & Security",
       "lifecycle": "Active",
       "priority": "P1",
       "summary": "Nightglass local-first OSINT case intelligence platform: schema v2, bounded TRACE, SIGNAL adapter, evidence capture/LEDGER, GRAPH foundation and SEC RECORDS provider implemented; live provider acceptance, PULSE/dossiers/SSO remain open.",
@@ -779,12 +918,13 @@
         "nightglass"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Evidence & OSINT"
     },
     {
       "id": "northline-experience",
       "name": "Northline Experience",
-      "family": "Media & Creative",
+      "family": "EchoVerse & EchoStories",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Immersive Northline six-track album/story listening and branded merchandise experience with audio visualizers, store and track narratives.",
@@ -796,12 +936,13 @@
         "northline"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "EchoStories"
     },
     {
       "id": "nxcal",
       "name": "NXCal",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "ACOS scheduling/calendar operator console for events, task deadlines, alerts and cross-source planning; vNext is a staged successor, not a second product.",
@@ -814,12 +955,13 @@
       "composeProjects": [
         "calendar-system",
         "nxcal-vnext"
-      ]
+      ],
+      "collection": "Planning & Productivity"
     },
     {
       "id": "nxcore-order-timer-board",
       "name": "NXCore Order Timer Board",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P3",
       "summary": "Realtime shared order/timer board with timed choices, start/stop sounds and completion feedback logging.",
@@ -831,12 +973,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "nxcore-order-timer-board"
-      ]
+      ],
+      "collection": "Planning & Productivity"
     },
     {
       "id": "prism-image-studio",
       "name": "Prism Image Studio",
-      "family": "Media & Creative",
+      "family": "Creative Production",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Local-first canvas/layer editor with command-based edits, blend modes, autosave and serializable project files.",
@@ -850,12 +993,13 @@
       "evidenceTier": "source or historical evidence",
       "composeProjects": [
         "prism"
-      ]
+      ],
+      "collection": "Lumina Studio"
     },
     {
       "id": "profit-compass-management-intelligence",
       "name": "Profit Compass Management Intelligence",
-      "family": "Commerce & Marketplaces",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P1",
       "summary": "Profit Compass recovery is past the source-loss stage: the rebuilt production API and governed member-access path are proven. Current work is management-intelligence completion—transaction drill-down, management report pack, controlled-pilot evidence, and remaining identity-isolation/host-test hardening before expanding into later Decision Lab/Cash Compass features.",
@@ -869,12 +1013,13 @@
       "evidenceTier": "bounded runtime acceptance reported",
       "composeProjects": [
         "profit-compass-api"
-      ]
+      ],
+      "collection": "AeroCore Command & Business"
     },
     {
       "id": "request-lens",
       "name": "Request Lens",
-      "family": "Investigations & Field",
+      "family": "Investigations & Security",
       "lifecycle": "Planning",
       "priority": "P2",
       "summary": "First-party request observability: managed redirects, remote-image requests, request metadata, and link preflight inspection.",
@@ -884,12 +1029,13 @@
       "notionUrl": "https://app.notion.com/3f62a204d0c481189483f279eb151ace",
       "repos": [],
       "evidenceTier": "planning/prototype",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Evidence & OSINT"
     },
     {
       "id": "rydesync-production-consolidation-launch-readiness",
       "name": "RydeSync Production Consolidation & Launch Readiness",
-      "family": "Operations & Productivity",
+      "family": "Operations & Workspaces",
       "lifecycle": "Active",
       "priority": "P0",
       "summary": "RydeSync production remains at 3190b5cb, release 2026-09-22.1. Browser acceptance remains valid; physical-device acceptance is still the completion gate and no newer source PR supersedes it.",
@@ -903,12 +1049,13 @@
       "evidenceTier": "bounded runtime acceptance reported",
       "composeProjects": [
         "rydesync"
-      ]
+      ],
+      "collection": "Communications & Mobility"
     },
     {
       "id": "shift-happens",
       "name": "Shift Happens",
-      "family": "Publishing & Learning",
+      "family": "Learning & Wellness",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Interactive shift-habits personal growth application with React UI and an authored product blueprint.",
@@ -920,12 +1067,13 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "shifthappens"
-      ]
+      ],
+      "collection": "Personal Growth"
     },
     {
       "id": "signal-reports-publishing",
       "name": "Signal — Reports & Publishing",
-      "family": "Publishing & Learning",
+      "family": "Publishing & Entertainment",
       "lifecycle": "Active",
       "priority": "P1",
       "summary": "Governed AeroVista reports and editorial publication workflow, separate from ByteCast employee training. Published report/ByteCast audio editions are outputs of Signal, not proof that both apps share one product identity.",
@@ -937,12 +1085,32 @@
         "signal"
       ],
       "evidenceTier": "published output evidenced",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Signal & Reports"
+    },
+    {
+      "id": "split-stems-audio-separation",
+      "name": "Split-Stems Audio Separation",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Audio separation workbench source with a web client, server, processing dependencies and database scaffolding.",
+      "evidence": "Source observed on NXCore mini.shops October 12, 2026. Local folder: Split-Stems. No new user/browser release acceptance implied.",
+      "nextGate": "Verify exact app intent, ownership, legitimate live access and full workflow before promotion.",
+      "notionUrl": "https://app.notion.com/p/3f72a204d0c481e6961bf3151d051dcd",
+      "lastReviewed": "2026-10-12",
+      "evidenceTier": "Local source found",
+      "repos": [],
+      "composeProjects": [],
+      "localFolders": [
+        "Split-Stems"
+      ],
+      "family": "EchoVerse & EchoStories",
+      "collection": "Audio Production Tools"
     },
     {
       "id": "store-console",
       "name": "Store Console",
-      "family": "Commerce & Marketplaces",
+      "family": "Commerce & Retail",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Shared AeroVista apparel/catalog administrative console with image, product and variation mapping into the Square-authoritative commerce system.",
@@ -958,12 +1126,13 @@
       "evidenceTier": "source or historical evidence",
       "composeProjects": [
         "aerovista_catalog_console"
-      ]
+      ],
+      "collection": "Flagship Commerce"
     },
     {
       "id": "style-atlas",
       "name": "Style Atlas",
-      "family": "Media & Creative",
+      "family": "EchoVerse & EchoStories",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Audio style and clustering intelligence supporting EchoVerse production and local analytical workflows.",
@@ -975,12 +1144,13 @@
       "evidenceTier": "source or historical evidence",
       "composeProjects": [
         "styleatlas"
-      ]
+      ],
+      "collection": "Audio Production Tools"
     },
     {
       "id": "summit-learning-2026",
       "name": "Summit Learning — 2026",
-      "family": "Publishing & Learning",
+      "family": "Learning & Wellness",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Summit Learning remains active, but the Access Convergence v1 reference pilot is already complete/proven and must not be treated as unfinished work. Next action: define one bounded Summit product/completion gate from the current workspace/public-sales state, with the production access pilot retained as accepted platform evidence rather than reopened.",
@@ -992,12 +1162,13 @@
         "Summit_Love_Is_Hard_Master_Package"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Training & Learning"
     },
     {
       "id": "the-rack",
       "name": "The Rack",
-      "family": "Publishing & Learning",
+      "family": "Publishing & Entertainment",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Comics discovery library and animated reader with page flips, panel-by-panel focus, progress, artwork and video sequences.",
@@ -1011,12 +1182,13 @@
         "comic_rack"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Vespera & Publications"
     },
     {
       "id": "time-circuit-release-store-integration",
       "name": "Time Circuit Release & Store Integration",
-      "family": "Publishing & Learning",
+      "family": "Publishing & Entertainment",
       "lifecycle": "Active",
       "priority": "P1",
       "summary": "Time Circuit remains active P1 release/store work at current main 75d5caa732090d0dbf13cd2c02b4d3825d157f3d. No newer source movement was found in this reconciliation. Exact canonical Future’s Past merchandise distribution, live Listen/Archive/Store browser acceptance and shared-Commerce checkout gating remain open.",
@@ -1028,12 +1200,13 @@
         "time-circuit"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Vespera & Publications"
     },
     {
       "id": "trustscope",
       "name": "TrustScope",
-      "family": "Other",
+      "family": "Investigations & Security",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Privacy-first suspicious link, email and message triage utility that explains scam/phishing warning signals in browser.",
@@ -1045,12 +1218,13 @@
         "trustscope"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Evidence & OSINT"
     },
     {
       "id": "vault-music-catalog",
       "name": "Vault Music Catalog",
-      "family": "Media & Creative",
+      "family": "EchoVerse & EchoStories",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Offline-capable music collection and playlist PWA with track metadata, work orders, comments, ratings and catalog imports.",
@@ -1062,12 +1236,13 @@
         "vault-music-catalog"
       ],
       "evidenceTier": "source or historical evidence",
-      "composeProjects": []
+      "composeProjects": [],
+      "collection": "Music & Catalog"
     },
     {
       "id": "vespera-publication-engine",
       "name": "Vespera Publication Engine",
-      "family": "Publishing & Learning",
+      "family": "Publishing & Entertainment",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Protected publication delivery retains prior source/runtime boundary; positive member/premium grant/revoke/logout/direct-file QA and Android v0.3 device acceptance remain open.",
@@ -1083,12 +1258,13 @@
       "composeProjects": [
         "mag-auth",
         "vespera-publishing-studio"
-      ]
+      ],
+      "collection": "Vespera & Publications"
     },
     {
       "id": "vespera-publishing-studio",
       "name": "Vespera Publishing Studio",
-      "family": "Publishing & Learning",
+      "family": "Publishing & Entertainment",
       "lifecycle": "Active",
       "priority": "P2",
       "summary": "Vespera production/editorial authoring studio with a dedicated database and web service.",
@@ -1100,7 +1276,8 @@
       "evidenceTier": "NXCore container observed",
       "composeProjects": [
         "vespera-publishing-studio"
-      ]
+      ],
+      "collection": "Vespera & Publications"
     }
   ],
   "repositories": [
