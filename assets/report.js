@@ -53,7 +53,7 @@ function overview(){
  for(const [n,v] of ordered(lc)){const next=cursor+100*v/prod;stops.push((colors[n]||'#526a7b')+' '+cursor+'% '+next+'%');cursor=next;}
  const legend=ordered(lc).map(([n,v])=>'<div class="legend-row"><span class="legend-swatch" style="background:'+(colors[n]||'#526a7b')+'"></span><span>'+escape(n)+'</span><b>'+v+'</b></div>').join('');
  const recommendations=D.recommendations.slice(0,3);
- return '<div class="hero"><span class="hero-tag">COMPANY-WIDE / REVIEW 01</span><h1>A clearer view of <span>everything</span> we build.</h1><p>One coherent inventory across AeroVista products, internal tools, creative systems, field platforms and experiments — with GitHub lineage and release uncertainty made explicit.</p><div class="hero-foot"><span>● AUDIT SNAPSHOT READY</span><span>11 OCTOBER 2026</span><span>NOTION × GITHUB</span></div></div>'
+ return '<div class="hero"><span class="hero-tag">COMPANY-WIDE / REVIEW 01</span><h1>A clearer view of <span>everything</span> we build.</h1><p>One coherent inventory across AeroVista products, internal tools, creative systems, field platforms and experiments — with GitHub lineage and release uncertainty made explicit.</p><div class="hero-foot"><span>● AUDIT SNAPSHOT READY</span><span>12 OCTOBER 2026</span><span>NOTION × GITHUB</span></div></div>'
  +'<div class="metrics">'+metric('Identified products',prod,'Canonical records · Notion','01')+metric('Accessible repos',reps,'GitHub owner enumeration','02')+metric('Active lifecycles',active,'Not a release-readiness count','03')+metric('Listing-only review',review,'Source taxonomy needs triage','04')+metric('Compose projects',D.deployments?.nxcore?.composeProjectCount||0,'NXCore Docker','05')+metric('Vercel projects',D.deployments?.vercel?.projectCount||0,'Connected scope','06')+'</div>'
  +'<div class="notice"><span class="symbol">!</span><div><strong>Lifecycle ≠ operational acceptance</strong><p>A product marked Active may still lack verified authentication, checkout, real-data QA, devices or production deployment. The source evidence and outstanding gates are recorded separately.</p></div></div>'
  +sectionHead('PORTFOLIO MIX','Where the work lives','Products categorized by intended use and operating family.')
@@ -198,11 +198,12 @@ function download(name,content,type){
 }
 function csvRow(values){return values.map(x=>'"'+String(x==null?'':x).replace(/"/g,'""').replace(/\r?\n/g,' ')+'"').join(',');}
 function exportCsv(){
- const mode=state.view==='repositories'?'repositories':'products';
- if(mode==='repositories'){const rows=repoFilter(),cols=['Repository','Kind','Review depth','Visibility','Related products','URL','Historical status'];
- download('aerovista-repository-audit-2026-10-11.csv',[csvRow(cols),...rows.map(r=>csvRow([r.name,r.kind,r.reviewDepth,r.visibility,r.links.map(x=>x.name).join('; '),r.url,r.historicalStatus]))].join('\r\n'),'text/csv;charset=utf-8');}
- else{const rows=productFilter(),cols=['Product','Family','Lifecycle','Priority','Evidence tier','Last Reviewed','Repositories','NXCore Compose','Summary','Next Gate','Notion URL'];
- download('aerovista-products-2026-10-11.csv',[csvRow(cols),...rows.map(p=>csvRow([p.name,p.family,p.lifecycle,p.priority,p.evidenceTier,p.lastReviewed,p.repos.join('; '),(p.composeProjects||[]).join('; '),p.summary,p.nextGate,p.notionUrl]))].join('\r\n'),'text/csv;charset=utf-8');}
+ const mode=state.view==='repositories'?'repositories':state.view==='local'?'local':'products';
+ if(mode==='local'){const q=state.query.trim().toLowerCase(),rows=(L.entries||[]).filter(x=>(state.localRole==='All roles'||x.role===state.localRole)&&(!q||[x.name,x.role,x.markers.join(' ')].join(' ').toLowerCase().includes(q))),cols=['Local folder','Classification','Top-level file markers','Child folder count','Source'];download('aerovista-minishops-2026-10-12.csv',[csvRow(cols),...rows.map(x=>csvRow([x.name,x.role,x.markers.join('; '),x.subfolders,'NXCore mini.shops']))].join('\r\n'),'text/csv;charset=utf-8');}
+ else if(mode==='repositories'){const rows=repoFilter(),cols=['Repository','Kind','Review depth','Visibility','Related products','URL','Historical status'];
+ download('aerovista-repository-audit-2026-10-12.csv',[csvRow(cols),...rows.map(r=>csvRow([r.name,r.kind,r.reviewDepth,r.visibility,r.links.map(x=>x.name).join('; '),r.url,r.historicalStatus]))].join('\r\n'),'text/csv;charset=utf-8');}
+ else{const rows=productFilter(),cols=['Product','Family','Collection','Lifecycle','Priority','Evidence tier','Last Reviewed','Repositories','NXCore Compose','Summary','Next Gate','Notion URL'];
+ download('aerovista-products-2026-10-12.csv',[csvRow(cols),...rows.map(p=>csvRow([p.name,p.family,p.collection,p.lifecycle,p.priority,p.evidenceTier,p.lastReviewed,p.repos.join('; '),(p.composeProjects||[]).join('; '),p.summary,p.nextGate,p.notionUrl]))].join('\r\n'),'text/csv;charset=utf-8');}
 }
 document.querySelector('.main-nav').addEventListener('click',e=>{const t=e.target.closest('[data-view]');if(t)nav(t.dataset.view);});
 app.addEventListener('click',e=>{
