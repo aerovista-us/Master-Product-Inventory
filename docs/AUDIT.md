@@ -1,21 +1,25 @@
 # AeroVista Master Product Inventory — Audit Findings
 
-**Snapshot:** October 11, 2026  
+**Snapshot:** GitHub/hosting October 11, expanded local source/grouping audit October 12, 2026  
 **Scope:** AeroVista-wide, not limited to Opt. Declassified  
 **Canonical tracker:** [Notion — Master Product Inventory](https://app.notion.com/p/3f62a204d0c481e39d7ecec55dd67b48)  
 **Source owner:** [aerovista-us on GitHub](https://github.com/aerovista-us)
 
 ## 1. Executive summary
 
-This audit inventoried **176 accessible GitHub repositories** under the linked AeroVista owner, including `Master-Product-Inventory`. The expanded canonical Notion Projects database now contains **61 products**: **48 Active**, **9 Planning**, **3 On Hold**, and **1 Completed**. The GitHub-only checkpoint was 41; 20 additional independently named tools were located through NXCore Docker and Vercel. See [Runtime and Hosting Audit](DEPLOYMENTS.md) for the deployment snapshot.
+This audit inventoried **176 accessible GitHub repositories** under the linked AeroVista owner, including `Master-Product-Inventory`. The canonical Notion Projects database now contains **67 Type=Product records**, including six local-source additions from mini.shops. The preceding October 11 checkpoint had 61: 48 Active, 9 Planning, 3 On Hold, and 1 Completed. Six additions are three Active and three Planning, resulting in an expected count of 51 Active, 12 Planning, 3 On Hold, and 1 Completed; final provider query verification was blocked by the Notion usage limit. The GitHub-only checkpoint was 41; 20 additional independently named tools were located through NXCore Docker and Vercel. See [Runtime and Hosting Audit](DEPLOYMENTS.md) for the deployment snapshot.
 
-**Do not interpret 48 Active as 48 production-ready apps.** Active means portfolio activity; deployment, paid checkout, private data access, user acceptance, device safety, print quality and operating evidence are independently gated. The source role of a repository is not a release status.
+**Do not interpret a portfolio Active label as production-ready.** Active means portfolio activity; deployment, paid checkout, private data access, user acceptance, device safety, print quality and operating evidence are independently gated. The source role of a repository is not a release status.
 
 An older human-classified GitHub repo catalog contained **111 entries**, generated **2026-07-09**. We preserved those notes as historical provenance. The old `ACOS`/AeroCore and storefront canonical-source conclusions may have been superseded, so source migrations or archiving must rely on current owner evidence.
 
 ## 1a. Deployment-backed portfolio expansion
 
 Read-only examination of NXCore found **63 Compose projects** and **109 running containers**. Connected Vercel returned **10 configured projects**; GitHub Firebase Hosting config documents **two targets** but does not prove deployed release state. Added 20 product records to Notion after confirming distinct app/UI intent. Refer to [DEPLOYMENTS.md](DEPLOYMENTS.md) and the report's Runtime & Hosting view for names, status, limits and source categories.
+
+## 1b. NXCore local source and family audit — October 12
+
+A direct read-only inspection of `/srv/Collab/mini.shops` found **76 top-level source folders**. The `_EchoStory` collection holds **33 visible child folders**, including themed listening experiences, reusable player templates and Time Circuit-related source. Six distinct product/prototype entries were added: EchoValentines, Split-Stems, CDA Public Camera Hub, Moth Emporium, Cupid HUD, and Cindy Santi Apparel Storefront. The portfolio is now grouped into **8 Product Families** and **25 Product Collections**; each product is still one canonical Notion Projects record. A separate EchoStories Program catalogs editions without inflating product counts. See [Families & Collections](COLLECTIONS.md), [source ledger](../data/local-sources.json) and the HTML Families / mini.shops sections.
 
 ## 2. Repository disposition
 
