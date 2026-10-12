@@ -4,7 +4,7 @@
     "snapshot": "2026-10-11",
     "githubOwner": "aerovista-us",
     "repositoryCount": 176,
-    "productCount": 41,
+    "productCount": 61,
     "notionUrl": "https://app.notion.com/p/3f62a204d0c481e39d7ecec55dd67b48",
     "historicalCatalogDate": "2026-07-09T16:45:47Z",
     "historicalCatalogCount": 111,
@@ -14,10 +14,51 @@
       "Selected README/source inspection",
       "Historical repository catalog from July 2026, labeled as historical",
       "No automatic inference of deployment or commercial readiness",
-      "Additional source-root classification of selected ambiguities on 2026-10-11; remaining Needs review rows are intentionally unresolved."
-    ]
+      "Additional source-root classification of selected ambiguities on 2026-10-11; remaining Needs review rows are intentionally unresolved.",
+      "NXCore Docker Compose direct read-only scan: running containers and Compose project names; no production UX or authorization acceptance.",
+      "Vercel connected project enumeration and latest deployment snapshots; access-scoped team query denied 403, unscoped connection succeeded.",
+      "Firebase Hosting repository configuration only: live Firebase CLI unavailable on NXCore and no current release API authorization."
+    ],
+    "deploymentAuditDate": "2026-10-11",
+    "runtimeProjects": 63,
+    "runningContainers": 109,
+    "vercelProjects": 10
   },
   "products": [
+    {
+      "id": "aerodeck",
+      "name": "AeroDeck",
+      "family": "Operations & Productivity",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Programmable Stream Deck-like digital control surface with React/FastAPI keys, widgets, dials and WebSocket state.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Operations / Controls · NXCore Compose aerodeck. NXCore aerodeck frontend and backend containers running; local README describes allowlisted trigger functions and 4x2 control grid. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Validate button permission policy, individual actions, WebSocket disconnect/reconnect, remote-control safety and authenticated operator browser UX.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c481bf8450e2ed25cd9eb4",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "aerodeck"
+      ]
+    },
+    {
+      "id": "aerovista-app-studio",
+      "name": "AeroVista App Studio",
+      "family": "Operations & Productivity",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Internal app-development studio with web UI, API, worker and Redis support services.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Builder / Workspaces · NXCore Compose app-studio. NXCore app-studio web, API, worker and Redis containers running; API reports Docker healthy. No end-user product workflow acceptance recorded. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Inspect job isolation and identity, create→build→preview→publish handoff, state persistence and production access control.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c481358dc6cb7a1af9f204",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "app-studio"
+      ]
+    },
     {
       "id": "aerovista-apparel-storefront-collections",
       "name": "AeroVista Apparel Storefront & Collections",
@@ -33,7 +74,28 @@
         "aerovista_apparel",
         "store"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": [
+        "apparel-auth",
+        "backend"
+      ]
+    },
+    {
+      "id": "aerovista-business-suite",
+      "name": "AeroVista Business Suite",
+      "family": "Operations & Productivity",
+      "lifecycle": "Planning",
+      "priority": "P2",
+      "summary": "Extracted contacts, team, invoices, tasks and projects business UI that aims to reuse AVCC authority instead of building another database.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Operations / Business · NXCore Compose aerovista_businesssuite. NXCore Business Suite container running; README identifies an initial extraction scaffold and local Draft Daily Brief import. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Prove source authority and non-duplication with AVCC/Operates before marking commercial-ready.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c481948e56f1aab93b1abb",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "aerovista_businesssuite"
+      ]
     },
     {
       "id": "aerovista-daily-brief-builder",
@@ -49,7 +111,8 @@
       "repos": [
         "aerovista-daily-brief-builder"
       ],
-      "evidenceTier": "on hold"
+      "evidenceTier": "on hold",
+      "composeProjects": []
     },
     {
       "id": "aerovista-frontier-ptt",
@@ -65,7 +128,8 @@
       "repos": [
         "ptt"
       ],
-      "evidenceTier": "on hold"
+      "evidenceTier": "on hold",
+      "composeProjects": []
     },
     {
       "id": "aerovista-operates",
@@ -81,7 +145,44 @@
       "repos": [
         "AeroVista_operates"
       ],
-      "evidenceTier": "bounded runtime acceptance reported"
+      "evidenceTier": "bounded runtime acceptance reported",
+      "composeProjects": [
+        "deploy"
+      ]
+    },
+    {
+      "id": "aerovista-pitch-studio",
+      "name": "AeroVista Pitch Studio",
+      "family": "Operations & Productivity",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Internal pitch and sales presentation creation workspace backed by web and API containers.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Sales / Creative · NXCore Compose aerovista_pitch_studio. NXCore Pitch Studio web and API running healthy; one associated exited Compose service, so service health is mixed. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Review full presentation workflow, template/export reliability, permission scope and the exited companion service.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c48149bf5dd45e1bf7be71",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "aerovista_pitch_studio"
+      ]
+    },
+    {
+      "id": "aerovista-social-engine",
+      "name": "AeroVista Social Engine",
+      "family": "Commerce & Marketplaces",
+      "lifecycle": "Planning",
+      "priority": "P2",
+      "summary": "Social Media Hub authentication and organization-account application foundation; intended social calendar/scheduler remains a future layer.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Marketing / Social · NXCore Compose socal_media_hub. NXCore socal_media_hub app and database containers running; README states Next.js/Prisma/NextAuth starter rather than completed scheduler. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Confirm identity authority/AVCC integration, role policies and actual scheduling feature before external launch.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c48173981ece31063045ed",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "socal_media_hub"
+      ]
     },
     {
       "id": "art-localized-platform-creator-validation",
@@ -98,7 +199,10 @@
         "artlocalized-api",
         "aerovista-site"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": [
+        "artlocalized-api"
+      ]
     },
     {
       "id": "ascension-awaits",
@@ -114,7 +218,10 @@
       "repos": [
         "aerovista-ascension-skyforge-restored-2026-08"
       ],
-      "evidenceTier": "planning/prototype"
+      "evidenceTier": "planning/prototype",
+      "composeProjects": [
+        "aerovista-workspaces"
+      ]
     },
     {
       "id": "autobench",
@@ -130,7 +237,8 @@
       "repos": [
         "autobench"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
     },
     {
       "id": "av-portrait",
@@ -146,7 +254,25 @@
       "repos": [
         "AV-Portrait"
       ],
-      "evidenceTier": "planning/prototype"
+      "evidenceTier": "planning/prototype",
+      "composeProjects": []
+    },
+    {
+      "id": "avcc-work-orders-mission-control",
+      "name": "AVCC Work Orders Mission Control",
+      "family": "Operations & Productivity",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Work order management mission control with web operator surface and processing worker.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Operations / Work Orders · NXCore Compose workorders. NXCore av-wo-ui and av-wo-processor containers running under workorders Compose; runtime relationship to AVCC documented. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Confirm task ownership, worker audit logs, role gates, invoice integration and data continuity with AeroVista Operates.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c481d99d63eb106ef404c6",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "workorders"
+      ]
     },
     {
       "id": "blackindex",
@@ -162,7 +288,10 @@
       "repos": [
         "BlackIndex"
       ],
-      "evidenceTier": "local runtime HTTP and health observed"
+      "evidenceTier": "local runtime HTTP and health observed",
+      "composeProjects": [
+        "blackindex"
+      ]
     },
     {
       "id": "bytecast-employee-home",
@@ -178,7 +307,10 @@
       "repos": [
         "bytecast"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": [
+        "bytecast"
+      ]
     },
     {
       "id": "bytecorelite",
@@ -194,7 +326,8 @@
       "repos": [
         "ByteCoreLite"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
     },
     {
       "id": "bytecorelite-connect",
@@ -210,7 +343,8 @@
       "repos": [
         "ByteCoreLite-Connect"
       ],
-      "evidenceTier": "planning/prototype"
+      "evidenceTier": "planning/prototype",
+      "composeProjects": []
     },
     {
       "id": "bytepad",
@@ -228,7 +362,8 @@
         "bytepad-web",
         "bytepad_studio"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
     },
     {
       "id": "cda-fair-day",
@@ -244,7 +379,8 @@
       "repos": [
         "cdafair"
       ],
-      "evidenceTier": "on hold"
+      "evidenceTier": "on hold",
+      "composeProjects": []
     },
     {
       "id": "cda-reading-adventure",
@@ -260,7 +396,8 @@
       "repos": [
         "cda-reading-adventure"
       ],
-      "evidenceTier": "planning/prototype"
+      "evidenceTier": "planning/prototype",
+      "composeProjects": []
     },
     {
       "id": "cda-tonight",
@@ -276,7 +413,42 @@
       "repos": [
         "cdatonight"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
+    },
+    {
+      "id": "cuts",
+      "name": "Cuts",
+      "family": "Media & Creative",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Standalone AudioTools Cuts browser utility, serving an audio cutting and trimming workspace.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Creative / Audio · NXCore Compose cuts. NXCore cuts nginx container running and local Compose/SOT present; no dedicated project README inspected. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Open UI, verify exact waveform and audio exports, lossless/non-destructive editing expectations and relation to Phase.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c48153bdf5ec4fc282a263",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "cuts"
+      ]
+    },
+    {
+      "id": "cyber-deck",
+      "name": "Cyber-Deck",
+      "family": "Operations & Productivity",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Cyberpunk-styled private planning and personal productivity dashboard for journaling, goals, habits, mood and finances.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Personal Productivity · NXCore Compose glitch_bitch. NXCore glitch_bitch web and database containers running/healthy; local README identifies Cyber-Deck experience. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Confirm stored-data isolation, authentication, backups and actual operational modules; internal Compose name is not public product branding.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c4816ca77bc3df5310e9e0",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "glitch_bitch"
+      ]
     },
     {
       "id": "echostory",
@@ -292,7 +464,42 @@
       "repos": [
         "echostory"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
+    },
+    {
+      "id": "echoverse-bytetag",
+      "name": "EchoVerse ByteTag",
+      "family": "Media & Creative",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "EchoVerse audio metadata/tagging operator utility with separate API and UI in the catalog stack.",
+      "evidence": "2026-10-11 infrastructure deployment audit · EchoVerse / Audio Metadata · NXCore Compose echoverse_music_catalogvnx. NXCore echoverse-bytetag-api and echoverse-bytetag-ui containers running healthy within EchoVerse catalog Compose. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Verify ID3/metadata editing, master preservation, catalog transactional authority and media export/revert behavior.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c481898396c84bef44f5e7",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "echoverse_music_catalogvnx"
+      ]
+    },
+    {
+      "id": "echoverse-narrator-studio",
+      "name": "EchoVerse Narrator Studio",
+      "family": "Media & Creative",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Local/private voice narration and text-to-speech production workbench with preset voices and catalog handoff.",
+      "evidence": "2026-10-11 infrastructure deployment audit · EchoVerse / Creative · NXCore Compose echoverse-narrator-starter. NXCore narrator API and UI containers running; README documents Kokoro/Piper TTS path and signed/preset/catalog milestones. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Validate voice model provenance, playback/export, permissions, generated-audio rights and catalog handoff.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c4816e96bde0bbfcb3464d",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "echoverse-narrator-starter"
+      ]
     },
     {
       "id": "echoverse-phase-workstation",
@@ -308,7 +515,8 @@
       "repos": [
         "phase"
       ],
-      "evidenceTier": "source merged and host response observed"
+      "evidenceTier": "source merged and host response observed",
+      "composeProjects": []
     },
     {
       "id": "echoverse-platform-stabilization-release",
@@ -325,7 +533,10 @@
         "echoverse",
         "EchoVerse_Analyses"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": [
+        "echoverse_music_catalogvnx"
+      ]
     },
     {
       "id": "exif-lens",
@@ -341,7 +552,8 @@
       "repos": [
         "exif-lens-pages"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
     },
     {
       "id": "fieldwatch",
@@ -358,7 +570,8 @@
         "fieldwatch",
         "pineapple-modules"
       ],
-      "evidenceTier": "planning/prototype"
+      "evidenceTier": "planning/prototype",
+      "composeProjects": []
     },
     {
       "id": "firewatch-command-north-idaho",
@@ -374,7 +587,59 @@
       "repos": [
         "AeroVista_FireWatch"
       ],
-      "evidenceTier": "completed launch assets evidenced"
+      "evidenceTier": "completed launch assets evidenced",
+      "composeProjects": []
+    },
+    {
+      "id": "guitar-studio",
+      "name": "Guitar Studio",
+      "family": "Media & Creative",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Standalone Guitar Studio audio/music browser tool in the AeroVista AudioTools family.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Creative / Audio · NXCore Compose guitar-studio. NXCore guitar-studio nginx container running and Compose/SOT present; detailed capabilities and customer quality not yet verified. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Inspect functional scope, MIDI/audio/device support and whether this should stay separate from Phase and EchoVerse.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c481499a87f911a3a9ddf2",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "guitar-studio"
+      ]
+    },
+    {
+      "id": "horizon-drone-tour-builder",
+      "name": "Horizon Drone Tour Builder",
+      "family": "Media & Creative",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Horizon aerial tour builder creative workspace, separate from Horizon product storefront.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Horizon / Creative · NXCore Compose aerovista-workspaces / horizon-tour-builder. NXCore horizon-tour-builder container running healthy; included under the AeroVista Workspaces Compose source. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Confirm source media ownership, ingest/export and published gallery workflow; do not equate a running tour editor with customer delivery.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c4818abd39e1371156e1c4",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "aerovista-workspaces"
+      ]
+    },
+    {
+      "id": "horizon-media-gallery",
+      "name": "Horizon Media Gallery",
+      "family": "Media & Creative",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Hosted Horizon gallery for presentation and discovery of aerial/visual media separate from checkout storefront.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Horizon / Creative · NXCore Compose horizon-media-gallery. NXCore horizon-media-gallery container running healthy with distinct Compose project. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Verify public/private album visibility, media authorization, deep links and publication/update workflows.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c4810cab1aec0a0f207c8b",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "horizon-media-gallery"
+      ]
     },
     {
       "id": "horizon-storefront",
@@ -391,7 +656,25 @@
         "horizon-storefront",
         "store"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
+    },
+    {
+      "id": "lake-day",
+      "name": "Lake Day",
+      "family": "Local & Community",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Explainable North Idaho lake-day recommendation utility using weather, AQI and activity context; does not yet ingest boating notices.",
+      "evidence": "2026-10-11 infrastructure deployment audit · AeroVista Local · Vercel project lakeday. Vercel latest production deployment READY; project live flag false. GitHub aerovista-us/lakeday README confirms Open-Meteo and deterministic GO/CAUTION/SKIP engine. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Confirm actual custom-domain browser access, forecast freshness, sources and missing lake hazards before consumer safety claims.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c481c48825d8b65f78ec95",
+      "repos": [
+        "lakeday"
+      ],
+      "evidenceTier": "Vercel READY only",
+      "composeProjects": []
     },
     {
       "id": "lotscope-pondy-flats-feasibility-workbench",
@@ -408,7 +691,8 @@
         "lot-assessment",
         "PondyFlats"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
     },
     {
       "id": "love-is-hard-learning-module",
@@ -424,7 +708,25 @@
       "repos": [
         "love-is-hard-public"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
+    },
+    {
+      "id": "lumina-branding-kit-organizer",
+      "name": "Lumina Branding Kit Organizer",
+      "family": "Media & Creative",
+      "lifecycle": "Planning",
+      "priority": "P2",
+      "summary": "Brand-asset kit and product organizer with kit/product pages and a typed React UI.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Lumina / Creative · NXCore Compose luminabrandingkitorganizer. NXCore lumina container running healthy; README calls implementation a starter with seeded mock JSON. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Replace mock data with controlled asset storage, versioned kit deliverables, role enforcement and export QA.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c4815eacaaf7972f3a03a7",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "luminabrandingkitorganizer"
+      ]
     },
     {
       "id": "lumina-image-studio",
@@ -440,7 +742,27 @@
       "repos": [
         "lumina-image-studio"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": [
+        "lumina-image-studio"
+      ]
+    },
+    {
+      "id": "memory-mapping-v2",
+      "name": "Memory Mapping v2",
+      "family": "Operations & Productivity",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Memory mapping, corpus indexing and event/scheduled processing stack with dashboard, API, watcher and scheduler.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Knowledge / Operations · NXCore Compose memorymappingv2. NXCore mmv2 dashboard/API/watcher/scheduler containers running and healthy; local source tree and Compose present. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Validate indexed-source provenance, retention and deletion, watcher recovery, search precision and consumer permissions.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c481c58bcfdcbfde0cf09d",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "memorymappingv2"
+      ]
     },
     {
       "id": "nightglass-osint-workbench",
@@ -456,7 +778,8 @@
       "repos": [
         "nightglass"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
     },
     {
       "id": "northline-experience",
@@ -472,7 +795,43 @@
       "repos": [
         "northline"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
+    },
+    {
+      "id": "nxcal",
+      "name": "NXCal",
+      "family": "Operations & Productivity",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "ACOS scheduling/calendar operator console for events, task deadlines, alerts and cross-source planning; vNext is a staged successor, not a second product.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Operations / Scheduling · NXCore Compose calendar-system + nxcal-vnext. NXCore nxcal and nxcal-vnext API containers running healthy; README identifies both existing operator routes and staged vNext migration. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Prove authoritative write/read integration, owner and tenant boundaries, migration parity, reminders and event time-zone correctness.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c48120af7cc911270e6350",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "calendar-system",
+        "nxcal-vnext"
+      ]
+    },
+    {
+      "id": "nxcore-order-timer-board",
+      "name": "NXCore Order Timer Board",
+      "family": "Operations & Productivity",
+      "lifecycle": "Active",
+      "priority": "P3",
+      "summary": "Realtime shared order/timer board with timed choices, start/stop sounds and completion feedback logging.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Operations / Utility · NXCore Compose nxcore-order-timer-board. NXCore Order Timer container running healthy; local README documents ten PNG order options, pending countdown, timer and event logs. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Verify browser realtime consistency, shared log retention, order queue restoration and permissions.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c4815bb577cb9c44cb2b91",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "nxcore-order-timer-board"
+      ]
     },
     {
       "id": "prism-image-studio",
@@ -488,7 +847,10 @@
       "repos": [
         "prism"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": [
+        "prism"
+      ]
     },
     {
       "id": "profit-compass-management-intelligence",
@@ -504,7 +866,10 @@
       "repos": [
         "profit-compass-api"
       ],
-      "evidenceTier": "bounded runtime acceptance reported"
+      "evidenceTier": "bounded runtime acceptance reported",
+      "composeProjects": [
+        "profit-compass-api"
+      ]
     },
     {
       "id": "request-lens",
@@ -518,7 +883,8 @@
       "lastReviewed": "2026-10-11",
       "notionUrl": "https://app.notion.com/3f62a204d0c481189483f279eb151ace",
       "repos": [],
-      "evidenceTier": "planning/prototype"
+      "evidenceTier": "planning/prototype",
+      "composeProjects": []
     },
     {
       "id": "rydesync-production-consolidation-launch-readiness",
@@ -534,7 +900,27 @@
       "repos": [
         "RydeSync"
       ],
-      "evidenceTier": "bounded runtime acceptance reported"
+      "evidenceTier": "bounded runtime acceptance reported",
+      "composeProjects": [
+        "rydesync"
+      ]
+    },
+    {
+      "id": "shift-happens",
+      "name": "Shift Happens",
+      "family": "Publishing & Learning",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Interactive shift-habits personal growth application with React UI and an authored product blueprint.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Wellness / Learning · NXCore Compose shifthappens. NXCore shifthappens container running; source project includes shift_habits_app.jsx and shift_habits_product_blueprint.md. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Review audience, privacy constraints, persisted user state and release acceptance; avoid clinical claims.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c48163967bf359dadd1aac",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "shifthappens"
+      ]
     },
     {
       "id": "signal-reports-publishing",
@@ -550,7 +936,8 @@
       "repos": [
         "signal"
       ],
-      "evidenceTier": "published output evidenced"
+      "evidenceTier": "published output evidenced",
+      "composeProjects": []
     },
     {
       "id": "store-console",
@@ -568,7 +955,10 @@
         "av-store",
         "store"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": [
+        "aerovista_catalog_console"
+      ]
     },
     {
       "id": "style-atlas",
@@ -582,7 +972,10 @@
       "lastReviewed": "2026-10-11",
       "notionUrl": "https://app.notion.com/3f62a204d0c481948656c3c5b0c35746",
       "repos": [],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": [
+        "styleatlas"
+      ]
     },
     {
       "id": "summit-learning-2026",
@@ -598,7 +991,8 @@
       "repos": [
         "Summit_Love_Is_Hard_Master_Package"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
     },
     {
       "id": "the-rack",
@@ -616,7 +1010,8 @@
         "therack",
         "comic_rack"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
     },
     {
       "id": "time-circuit-release-store-integration",
@@ -632,7 +1027,8 @@
       "repos": [
         "time-circuit"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
     },
     {
       "id": "trustscope",
@@ -648,7 +1044,8 @@
       "repos": [
         "trustscope"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
     },
     {
       "id": "vault-music-catalog",
@@ -664,7 +1061,8 @@
       "repos": [
         "vault-music-catalog"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": []
     },
     {
       "id": "vespera-publication-engine",
@@ -681,7 +1079,28 @@
         "mag",
         "aerovista-vespera-restored-2026-08"
       ],
-      "evidenceTier": "source or historical evidence"
+      "evidenceTier": "source or historical evidence",
+      "composeProjects": [
+        "mag-auth",
+        "vespera-publishing-studio"
+      ]
+    },
+    {
+      "id": "vespera-publishing-studio",
+      "name": "Vespera Publishing Studio",
+      "family": "Publishing & Learning",
+      "lifecycle": "Active",
+      "priority": "P2",
+      "summary": "Vespera production/editorial authoring studio with a dedicated database and web service.",
+      "evidence": "2026-10-11 infrastructure deployment audit · Vespera / Publishing · NXCore Compose vespera-publishing-studio. NXCore vespera-publishing-studio app and DB running healthy; project has an exited Compose service alongside active services. Running container, service health, or READY Vercel deployment is not authenticated user acceptance. Cross-reference private GitHub Master-Product-Inventory deployment report; no public endpoints asserted without direct verification.",
+      "nextGate": "Review content schema, draft→publish handoff, direct file bypass security, recoverability and exited service.",
+      "lastReviewed": "2026-10-11",
+      "notionUrl": "https://app.notion.com/3f72a204d0c48122b703d030e4620c25",
+      "repos": [],
+      "evidenceTier": "NXCore container observed",
+      "composeProjects": [
+        "vespera-publishing-studio"
+      ]
     }
   ],
   "repositories": [
@@ -3695,5 +4114,1185 @@
       ],
       "detail": "Shared platform; canonical authority must be established using current architecture."
     }
-  ]
+  ],
+  "deployments": {
+    "nxcore": {
+      "hostLabel": "NXCore (authorized remote)",
+      "observedDate": "2026-10-11",
+      "composeProjectCount": 63,
+      "runningContainerCount": 109,
+      "healthCount": {
+        "not declared": 48,
+        "healthy": 61
+      },
+      "projects": [
+        {
+          "name": "account-deny",
+          "status": "running(1)"
+        },
+        {
+          "name": "account-public-ui",
+          "status": "running(1)"
+        },
+        {
+          "name": "aerocaller",
+          "status": "running(1)"
+        },
+        {
+          "name": "aerocoreospro",
+          "status": "running(1)"
+        },
+        {
+          "name": "aerocoreosweb",
+          "status": "running(1)"
+        },
+        {
+          "name": "aerodeck",
+          "status": "running(2)"
+        },
+        {
+          "name": "aerovista-command-center",
+          "status": "running(2)"
+        },
+        {
+          "name": "aerovista-commerce-sandbox",
+          "status": "exited(2)"
+        },
+        {
+          "name": "aerovista-workspaces",
+          "status": "running(3)"
+        },
+        {
+          "name": "aerovista_businesssuite",
+          "status": "running(1)"
+        },
+        {
+          "name": "aerovista_catalog_console",
+          "status": "running(1)"
+        },
+        {
+          "name": "aerovista_pitch_studio",
+          "status": "exited(1), running(2)"
+        },
+        {
+          "name": "agent-os",
+          "status": "running(3)"
+        },
+        {
+          "name": "app-studio",
+          "status": "running(4)"
+        },
+        {
+          "name": "apparel-auth",
+          "status": "running(1)"
+        },
+        {
+          "name": "artlocalized-api",
+          "status": "running(1)"
+        },
+        {
+          "name": "ascension-awaits-bon-grid-v4",
+          "status": "running(1)"
+        },
+        {
+          "name": "authentik",
+          "status": "running(3)"
+        },
+        {
+          "name": "autoheal",
+          "status": "running(1)"
+        },
+        {
+          "name": "backend",
+          "status": "running(4)"
+        },
+        {
+          "name": "blackindex",
+          "status": "running(1)"
+        },
+        {
+          "name": "browser-workspaces",
+          "status": "running(1)"
+        },
+        {
+          "name": "bytecast",
+          "status": "running(1)"
+        },
+        {
+          "name": "calendar-system",
+          "status": "running(1)"
+        },
+        {
+          "name": "charatureprofiles",
+          "status": "running(1)"
+        },
+        {
+          "name": "core-registry",
+          "status": "running(2)"
+        },
+        {
+          "name": "cuts",
+          "status": "running(1)"
+        },
+        {
+          "name": "deploy",
+          "status": "running(2)"
+        },
+        {
+          "name": "echoverse-narrator-starter",
+          "status": "running(2)"
+        },
+        {
+          "name": "echoverse_music_catalogvnx",
+          "status": "running(8)"
+        },
+        {
+          "name": "ghost-log-main",
+          "status": "running(1)"
+        },
+        {
+          "name": "glitch_bitch",
+          "status": "running(2)"
+        },
+        {
+          "name": "guitar-studio",
+          "status": "running(1)"
+        },
+        {
+          "name": "horizon-media-gallery",
+          "status": "running(1)"
+        },
+        {
+          "name": "identity-gateway",
+          "status": "running(1)"
+        },
+        {
+          "name": "lumina-image-studio",
+          "status": "running(1)"
+        },
+        {
+          "name": "luminabrandingkitorganizer",
+          "status": "running(1)"
+        },
+        {
+          "name": "mag-auth",
+          "status": "running(1)"
+        },
+        {
+          "name": "member-auth-probe",
+          "status": "running(1)"
+        },
+        {
+          "name": "memorymappingv2",
+          "status": "running(4)"
+        },
+        {
+          "name": "n8n",
+          "status": "running(1)"
+        },
+        {
+          "name": "nxcal-vnext",
+          "status": "running(1)"
+        },
+        {
+          "name": "nxcore-openwebui",
+          "status": "running(1)"
+        },
+        {
+          "name": "nxcore-order-timer-board",
+          "status": "running(1)"
+        },
+        {
+          "name": "nxtraefik",
+          "status": "exited(4), running(4)"
+        },
+        {
+          "name": "ollama",
+          "status": "running(1)"
+        },
+        {
+          "name": "prism",
+          "status": "running(1)"
+        },
+        {
+          "name": "profit-compass-api",
+          "status": "running(2)"
+        },
+        {
+          "name": "py-board",
+          "status": "running(1)"
+        },
+        {
+          "name": "rack-auth",
+          "status": "running(1)"
+        },
+        {
+          "name": "rustdesk",
+          "status": "running(2)"
+        },
+        {
+          "name": "rydesync",
+          "status": "running(1)"
+        },
+        {
+          "name": "shifthappens",
+          "status": "running(1)"
+        },
+        {
+          "name": "socal_media_hub",
+          "status": "running(2)"
+        },
+        {
+          "name": "sot-portfolio-local",
+          "status": "running(1)"
+        },
+        {
+          "name": "styleatlas",
+          "status": "running(2)"
+        },
+        {
+          "name": "thesignal",
+          "status": "running(1)"
+        },
+        {
+          "name": "turn",
+          "status": "running(1)"
+        },
+        {
+          "name": "umami",
+          "status": "running(2)"
+        },
+        {
+          "name": "vespera-publishing-studio",
+          "status": "exited(1), running(2)"
+        },
+        {
+          "name": "workorders",
+          "status": "running(2)"
+        },
+        {
+          "name": "workstation-portal",
+          "status": "running(1)"
+        },
+        {
+          "name": "wt",
+          "status": "running(2)"
+        }
+      ],
+      "containers": [
+        {
+          "name": "av-catalog-console",
+          "image": "aerovista_catalog_console-catalog-console",
+          "composeProject": "aerovista_catalog_console",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "blackindex-dashboard",
+          "image": "python:3.12-slim",
+          "composeProject": "blackindex",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "aerovista-command-center",
+          "image": "aerovista-command-center-command-center",
+          "composeProject": "aerovista-command-center",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "account-public-ui",
+          "image": "nginx:1.27-alpine",
+          "composeProject": "account-public-ui",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "founder-doc-canary",
+          "image": "aerovista-command-center-command-center",
+          "composeProject": "aerovista-command-center",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "apparel-auth",
+          "image": "aerovista-apparel-auth:latest",
+          "composeProject": "apparel-auth",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "account-ui-docsfix-preview",
+          "image": "nginx:1.27-alpine",
+          "composeProject": null,
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "account-ui-v2-preview",
+          "image": "nginx:1.27-alpine",
+          "composeProject": null,
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "mag-auth",
+          "image": "aerovista-mag-auth:release-af63346",
+          "composeProject": "mag-auth",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "identity-gateway",
+          "image": "aerovista-identity-gateway",
+          "composeProject": "identity-gateway",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "mag-auth-echoverse-candidate",
+          "image": "aerovista-mag-auth:echoverse-candidate",
+          "composeProject": null,
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "rack-auth",
+          "image": "aerovista-rack-auth",
+          "composeProject": "rack-auth",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "ascension-web",
+          "image": "aerovista-workspaces-skyforge-ascension:latest",
+          "composeProject": "aerovista-workspaces",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "av-wo-ui",
+          "image": "nginx:alpine",
+          "composeProject": "workorders",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "av-wo-processor",
+          "image": "workorders-av-wo-processor",
+          "composeProject": "workorders",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "n8n-n8n-1",
+          "image": "n8nio/n8n",
+          "composeProject": "n8n",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "browser-workspaces-code-1",
+          "image": "codercom/code-server:latest",
+          "composeProject": "browser-workspaces",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "autoheal",
+          "image": "willfarrell/autoheal",
+          "composeProject": "autoheal",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "umami",
+          "image": "ghcr.io/umami-software/umami:postgresql-latest",
+          "composeProject": "umami",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "umami-db",
+          "image": "postgres:16",
+          "composeProject": "umami",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "rydesync",
+          "image": "aerovista-rydesync:3190b5cbce29",
+          "composeProject": null,
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "style-atlas-worker",
+          "image": "echoverse-style-atlas-worker:local",
+          "composeProject": "styleatlas",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "account-provisioning",
+          "image": "aerovista-account-provisioning",
+          "composeProject": "aerovista-command-center",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "lost-founder-web",
+          "image": "deploy-lost-founder-web",
+          "composeProject": "deploy",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "lost-founder-api",
+          "image": "deploy-lost-founder-api",
+          "composeProject": "deploy",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "echoverse-library-api",
+          "image": "echoverse_music_catalog-library-api",
+          "composeProject": "echoverse_music_catalogvnx",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "echoverse-narrator-api",
+          "image": "echoverse-narrator-starter-echoverse-narrator-api",
+          "composeProject": "echoverse-narrator-starter",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "echoverse-catalog-v4",
+          "image": "echoverse_music_catalog-catalog-v4",
+          "composeProject": "echoverse_music_catalogvnx",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "echoverse-batch-analyzer",
+          "image": "echoverse_music_catalog-batch-analyzer",
+          "composeProject": "echoverse_music_catalogvnx",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "artlocalized-api",
+          "image": "artlocalized-api-artlocalized-api",
+          "composeProject": "artlocalized-api",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "workstation-portal",
+          "image": "42e0d402c482",
+          "composeProject": "workstation-portal",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "av-store-api",
+          "image": "backend-av-store-api",
+          "composeProject": "backend",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "nxtraefik-traefik-1",
+          "image": "traefik:v2.11.8",
+          "composeProject": "nxtraefik",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "rydesync-turn",
+          "image": "coturn/coturn:4.17.2-r0",
+          "composeProject": "turn",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "rydesync-alpha7",
+          "image": "rydesync:3.0.0-alpha.7",
+          "composeProject": null,
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "lumina-prism-web",
+          "image": "aerocore/lumina-prism:local",
+          "composeProject": "prism",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "exif-lens-api",
+          "image": "exif-webpair-backend",
+          "composeProject": "exif-webpair",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "lumina-image-studio-web",
+          "image": "nginx:alpine",
+          "composeProject": "lumina-image-studio",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "profit-compass-api",
+          "image": "profit-compass-api-profit-compass-api",
+          "composeProject": "profit-compass-api",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "profit-compass-postgres",
+          "image": "postgres:16-alpine",
+          "composeProject": "profit-compass-api",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "member-auth-probe",
+          "image": "member-auth-probe-member-auth-probe",
+          "composeProject": "member-auth-probe",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "authentik-server",
+          "image": "ghcr.io/goauthentik/server:2026.5.6",
+          "composeProject": "authentik",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "authentik-worker",
+          "image": "ghcr.io/goauthentik/server:2026.5.6",
+          "composeProject": "authentik",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "authentik-postgresql",
+          "image": "postgres:16-alpine",
+          "composeProject": "authentik",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "openwebui",
+          "image": "ghcr.io/open-webui/open-webui:v0.9.5",
+          "composeProject": "nxcore-openwebui",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "horizon-tour-builder",
+          "image": "aerovista-workspaces-horizon-drone-tour:latest",
+          "composeProject": "aerovista-workspaces",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "vespera-publishing-studio-app-1",
+          "image": "aerovista/vespera-publishing-studio:4.1.11-3",
+          "composeProject": "vespera-publishing-studio",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "vespera-publishing-studio-db-1",
+          "image": "postgres",
+          "composeProject": "vespera-publishing-studio",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "av-store-reconcile-worker",
+          "image": "backend-reconcile-worker",
+          "composeProject": "backend",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "av-store-fulfillment-worker",
+          "image": "backend-fulfillment-worker",
+          "composeProject": "backend",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "av-store-postgres",
+          "image": "postgres:16-alpine",
+          "composeProject": "backend",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "account-deny",
+          "image": "nginx:1.27-alpine",
+          "composeProject": "account-deny",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "sot-portfolio-local-portfolio-1",
+          "image": "nginx:1.27-alpine",
+          "composeProject": "sot-portfolio-local",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "bytecast-web",
+          "image": "nginx:alpine",
+          "composeProject": "bytecast",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "aerovista-workspaces",
+          "image": "nginx:1.27-alpine",
+          "composeProject": "aerovista-workspaces",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "horizon-media-gallery",
+          "image": "aerovista-horizon-media-gallery:2.16-horizon2",
+          "composeProject": "horizon-media-gallery",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "style-atlas-api",
+          "image": "echoverse-style-atlas-api:local",
+          "composeProject": "styleatlas",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "registry-api",
+          "image": "node:22-alpine",
+          "composeProject": "core-registry",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "registry-db",
+          "image": "postgres:16-alpine",
+          "composeProject": "core-registry",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "rydesync-rydesync-1",
+          "image": "rydesync-rydesync",
+          "composeProject": "rydesync",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "echoverse-bytetag-api",
+          "image": "echoverse_music_catalog-bytetag-api",
+          "composeProject": "echoverse_music_catalogvnx",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "echoverse-narrator-ui",
+          "image": "echoverse-narrator-starter-echoverse-narrator-ui",
+          "composeProject": "echoverse-narrator-starter",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "echoverse-bytetag-ui",
+          "image": "echoverse_music_catalog-bytetag-ui",
+          "composeProject": "echoverse_music_catalogvnx",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "echoverse-whisper",
+          "image": "echoverse_music_catalog-whisper",
+          "composeProject": "echoverse_music_catalogvnx",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "echoverse-analyzer",
+          "image": "echoverse_music_catalog-analyzer",
+          "composeProject": "echoverse_music_catalogvnx",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "app-studio-web-1",
+          "image": "app-studio-web",
+          "composeProject": "app-studio",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "app-studio-worker-1",
+          "image": "app-studio-worker",
+          "composeProject": "app-studio",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "app-studio-api-1",
+          "image": "app-studio-api",
+          "composeProject": "app-studio",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "app-studio-redis-1",
+          "image": "redis:7-alpine",
+          "composeProject": "app-studio",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "mmv2-dashboard",
+          "image": "memorymappingv2-mmv2-dashboard",
+          "composeProject": "memorymappingv2",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "mmv2-api",
+          "image": "memorymappingv2-mmv2-api",
+          "composeProject": "memorymappingv2",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "nexus-ops-hub",
+          "image": "py-board-nexus-ops-hub",
+          "composeProject": "py-board",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "aerocaller",
+          "image": "aerocaller-aerocaller",
+          "composeProject": "aerocaller",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "order-timer-board",
+          "image": "nxcore-order-timer-board-order-timer-board",
+          "composeProject": "nxcore-order-timer-board",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "ollama",
+          "image": "ollama/ollama",
+          "composeProject": "ollama",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "rustdesk-hbbr-1",
+          "image": "rustdesk/rustdesk-server:latest",
+          "composeProject": "rustdesk",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "rustdesk-hbbs-1",
+          "image": "rustdesk/rustdesk-server:latest",
+          "composeProject": "rustdesk",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "thesignal-web-1",
+          "image": "nginx:alpine",
+          "composeProject": "thesignal",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "admin-landing",
+          "image": "nginx:alpine",
+          "composeProject": "nxtraefik",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "grafana",
+          "image": "grafana/grafana:10.4.2",
+          "composeProject": "nxtraefik",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "dozzle",
+          "image": "amir20/dozzle:latest",
+          "composeProject": "nxtraefik",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "nxcal-vnext-api",
+          "image": "nxcal-vnext-nxcal-vnext-api",
+          "composeProject": "nxcal-vnext",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "cuts",
+          "image": "nginx:alpine",
+          "composeProject": "cuts",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "guitar-studio",
+          "image": "nginx:alpine",
+          "composeProject": "guitar-studio",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "lumina",
+          "image": "luminabrandingkitorganizer-lumina",
+          "composeProject": "luminabrandingkitorganizer",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "aerocoreos-pro-dev",
+          "image": "aerocoreospro-aerocoreos-pro-dev",
+          "composeProject": "aerocoreospro",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "aerocoreos-web",
+          "image": "aerocoreosweb-aerocoreos-web",
+          "composeProject": "aerocoreosweb",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "aerodeck-frontend",
+          "image": "aerodeck-aerodeck-frontend",
+          "composeProject": "aerodeck",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "aerodeck-backend",
+          "image": "aerodeck-aerodeck-backend",
+          "composeProject": "aerodeck",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "wt-web-1",
+          "image": "wt-web",
+          "composeProject": "wt",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "wt-signaling-1",
+          "image": "wt-signaling",
+          "composeProject": "wt",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "acos-agent-api",
+          "image": "agent-os-agent-api",
+          "composeProject": "agent-os",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "acos-agent-postgres",
+          "image": "postgres:16",
+          "composeProject": "agent-os",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "acos-agent-redis",
+          "image": "redis:7-alpine",
+          "composeProject": "agent-os",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "shifthappens-shift-habits-1",
+          "image": "shift-habits:local",
+          "composeProject": "shifthappens",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "aerovista_pitch_studio-web-1",
+          "image": "aerovista_pitch_studio-web",
+          "composeProject": "aerovista_pitch_studio",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "aerovista_pitch_studio-api-1",
+          "image": "aerovista_pitch_studio-api",
+          "composeProject": "aerovista_pitch_studio",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "timbr-codex-web",
+          "image": "nginx:alpine",
+          "composeProject": "charatureprofiles",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "echoverse-library-v4",
+          "image": "nginx:1.27-alpine",
+          "composeProject": "echoverse_music_catalogvnx",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "nxcal",
+          "image": "calendar-system-nxcal",
+          "composeProject": "calendar-system",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "aerovista-business-suite",
+          "image": "310734bc8996",
+          "composeProject": "aerovista_businesssuite",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "glitch-bitch-db",
+          "image": "108b27c919e6",
+          "composeProject": "glitch_bitch",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "socal_media_hub-db-1",
+          "image": "108b27c919e6",
+          "composeProject": "socal_media_hub",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "glitch-bitch-web",
+          "image": "glitch_bitch-web",
+          "composeProject": "glitch_bitch",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "ghost-log-main-web-1",
+          "image": "ghost-log-main-web",
+          "composeProject": "ghost-log-main",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "mmv2-watcher",
+          "image": "memorymappingv2-mmv2-watcher",
+          "composeProject": "memorymappingv2",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "mmv2-scheduler",
+          "image": "memorymappingv2-mmv2-scheduler",
+          "composeProject": "memorymappingv2",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "name": "socal_media_hub-app-1",
+          "image": "304555c45831",
+          "composeProject": "socal_media_hub",
+          "health": "not declared",
+          "state": "running"
+        },
+        {
+          "name": "wyoming-piper",
+          "image": "rhasspy/wyoming-piper:2.2.2",
+          "composeProject": "ascension-awaits-bon-grid-v4",
+          "health": "not declared",
+          "state": "running"
+        }
+      ],
+      "limitations": "Docker process/health/Compose state; no browser QA or protection verification. Historical exited/stale containers may be absent from docker ps."
+    },
+    "vercel": {
+      "observedDate": "2026-10-11",
+      "projectCount": 10,
+      "projects": [
+        {
+          "name": "cdatonight",
+          "id": "prj_34cmG7zlUu0oJbiUVWW2LT66qL02",
+          "linkedProduct": "CDA Tonight",
+          "latestObservedState": "CANCELED",
+          "latestDeploymentId": "dpl_8mrRG4ehagTaGdV6YxEkS6HY4GFR",
+          "latestTargetProduction": true,
+          "observedDate": "2026-10-11",
+          "updatedAt": 1791772203287,
+          "notes": "Project exists. Latest deployment state from 2026-10-11 connector readback; no authenticated consumer/browser acceptance. Production target marker is not proof that the custom domain serves this specific deployment."
+        },
+        {
+          "name": "lotscope",
+          "id": "prj_qRwvydlg2d9yVbZZfkryxjjEdRt0",
+          "linkedProduct": "LotScope / Pondy Flats Feasibility Workbench",
+          "latestObservedState": "ERROR",
+          "latestDeploymentId": "dpl_4b1BTFdcfWvkfyGobTrUCm8ecyJa",
+          "latestTargetProduction": false,
+          "observedDate": "2026-10-11",
+          "updatedAt": 1791770750487,
+          "notes": "Project exists. Latest deployment state from 2026-10-11 connector readback; no authenticated consumer/browser acceptance. Production target marker is not proof that the custom domain serves this specific deployment."
+        },
+        {
+          "name": "aerovista_apparel",
+          "id": "prj_RjsdIN10rYb4YAKJHUg3DcIDhYpi",
+          "linkedProduct": "AeroVista Apparel Storefront & Collections",
+          "latestObservedState": "READY",
+          "latestDeploymentId": "dpl_8pU4w8X5XhnZppNywCGJiA1njU5i",
+          "latestTargetProduction": true,
+          "observedDate": "2026-10-08",
+          "updatedAt": 1791493436917,
+          "notes": "Project exists. Latest deployment state from 2026-10-11 connector readback; no authenticated consumer/browser acceptance. Production target marker is not proof that the custom domain serves this specific deployment."
+        },
+        {
+          "name": "signal",
+          "id": "prj_1SXw4wK2xL88HAjw8tE9V3s6FyKL",
+          "linkedProduct": "Signal — Reports & Publishing",
+          "latestObservedState": "READY",
+          "latestDeploymentId": "dpl_96k1B3NSGQg6L2TWyrdZFvayHJ8r",
+          "latestTargetProduction": true,
+          "observedDate": "2026-10-08",
+          "updatedAt": 1791425536718,
+          "notes": "Project exists. Latest deployment state from 2026-10-11 connector readback; no authenticated consumer/browser acceptance. Production target marker is not proof that the custom domain serves this specific deployment."
+        },
+        {
+          "name": "av-portrait",
+          "id": "prj_asXsUCBIopEhT799zBKpTgS1Es03",
+          "linkedProduct": "AV Portrait",
+          "latestObservedState": "READY",
+          "latestDeploymentId": "dpl_H1gWGbcBq6vdi1isTP6bvpvAqovZ",
+          "latestTargetProduction": false,
+          "observedDate": "2026-10-05",
+          "updatedAt": 1791158483136,
+          "notes": "Project exists. Latest deployment state from 2026-10-11 connector readback; no authenticated consumer/browser acceptance. Production target marker is not proof that the custom domain serves this specific deployment."
+        },
+        {
+          "name": "handoff-centralized",
+          "id": "prj_4SVWFXSeb47yAEmt08TAENy3YdZ1",
+          "linkedProduct": null,
+          "latestObservedState": "READY",
+          "latestDeploymentId": "dpl_EK346qk7oea7MABr3EPjShAUiwfu",
+          "latestTargetProduction": true,
+          "observedDate": "2026-10-04",
+          "updatedAt": 1791062571344,
+          "notes": "Project exists. Latest deployment state from 2026-10-11 connector readback; no authenticated consumer/browser acceptance. Production target marker is not proof that the custom domain serves this specific deployment."
+        },
+        {
+          "name": "echostory",
+          "id": "prj_T6yqFyiB4ELiJXgeUkHOBYtCR3k1",
+          "linkedProduct": "EchoStory",
+          "latestObservedState": "READY",
+          "latestDeploymentId": "dpl_4t7A5Kjnhx54dw74yuCoSzuLbQED",
+          "latestTargetProduction": true,
+          "observedDate": "2026-09-27",
+          "updatedAt": 1790495889620,
+          "notes": "Project exists. Latest deployment state from 2026-10-11 connector readback; no authenticated consumer/browser acceptance. Production target marker is not proof that the custom domain serves this specific deployment."
+        },
+        {
+          "name": "lakeday",
+          "id": "prj_zalOPsmx6LhXymX3KorTl43LfxAk",
+          "linkedProduct": "Lake Day",
+          "latestObservedState": "READY",
+          "latestDeploymentId": "dpl_3e48ERGPmBPd3HB8XxaDKfwsuASD",
+          "latestTargetProduction": true,
+          "observedDate": "2026-09-27",
+          "updatedAt": 1790495883361,
+          "notes": "Project exists. Latest deployment state from 2026-10-11 connector readback; no authenticated consumer/browser acceptance. Production target marker is not proof that the custom domain serves this specific deployment."
+        },
+        {
+          "name": "cdafair",
+          "id": "prj_W8eDAVrh5SirFmA3ZB0U3an8LvV1",
+          "linkedProduct": "CDA Fair Day",
+          "latestObservedState": "READY",
+          "latestDeploymentId": "dpl_4ZHg7g8errhud5GrUyVnnDygPzA1",
+          "latestTargetProduction": true,
+          "observedDate": "2026-09-27",
+          "updatedAt": 1790495877121,
+          "notes": "Project exists. Latest deployment state from 2026-10-11 connector readback; no authenticated consumer/browser acceptance. Production target marker is not proof that the custom domain serves this specific deployment."
+        },
+        {
+          "name": "trustscope",
+          "id": "prj_CRKvra6gwCxxcLBAstofB2UvyrmJ",
+          "linkedProduct": "TrustScope",
+          "latestObservedState": "READY",
+          "latestDeploymentId": "dpl_AEWVyy5bhKdMUP21kivgLeuYp7UT",
+          "latestTargetProduction": true,
+          "observedDate": "2026-08-23",
+          "updatedAt": 1790115355476,
+          "notes": "Project exists. Latest deployment state from 2026-10-11 connector readback; no authenticated consumer/browser acceptance. Production target marker is not proof that the custom domain serves this specific deployment."
+        }
+      ],
+      "limitations": "Unscoped Vercel connection lists projects; explicit team-scoped project/deployment reads returned 403. READY is deployment status, not live customer/browser acceptance. Latest global deployment events may be CANCELED or ERROR while earlier production deployment remains READY."
+    },
+    "firebase": {
+      "observedDate": "2026-10-11",
+      "verification": "source config only",
+      "firebaseCliAvailableOnNxcore": false,
+      "projectId": "aerovista-us",
+      "targets": [
+        {
+          "sourceRepo": "aerovista-site",
+          "hostingTarget": "platform",
+          "hostingSite": "aerovista-platform",
+          "configuration": "firebase.json + .firebaserc"
+        },
+        {
+          "sourceRepo": "aerovista-us-acos-site",
+          "hostingTarget": "public",
+          "hostingSite": "aerovista-us",
+          "configuration": "firebase.json + .firebaserc"
+        }
+      ],
+      "limitations": "No Firebase CLI on NXCore. Target mappings and redirect/rewrite configuration are verified in GitHub; current Firebase Hosting releases, active sites, custom domains and deployed artifact hashes have not been queried."
+    },
+    "candidateServices": [
+      "aerocaller",
+      "ghost-log-main",
+      "py-board",
+      "charatureprofiles",
+      "agent-os",
+      "aerocoreosweb",
+      "aerocoreospro"
+    ],
+    "scopeNotes": "Candidate services are deliberately not promoted to canonical Type=Product records without product ownership, app role and overlap validation."
+  }
 }
